@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#0f1422"/>
+  <!-- AI Fluency Ladder motif: ascending rungs -->
+  <g stroke="#6c8cff" stroke-width="4" stroke-linecap="round">
+    <line x1="20" y1="46" x2="44" y2="46"/>
+    <line x1="20" y1="36" x2="44" y2="36"/>
+    <line x1="20" y1="26" x2="44" y2="26"/>
+    <line x1="20" y1="16" x2="44" y2="16"/>
+    <line x1="20" y1="14" x2="20" y2="48"/>
+    <line x1="44" y1="14" x2="44" y2="48"/>
+  </g>
+</svg>
