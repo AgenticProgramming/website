@@ -210,6 +210,67 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   margin: 24px auto 0;
 }
 
+/* Feedback form (/feedback) */
+.feedback-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.feedback-form { margin-top: 36px; }
+
+.feedback-form .field { margin-bottom: 22px; }
+
+.feedback-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.feedback-form .req { color: var(--accent); }
+
+.feedback-form select,
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.feedback-form textarea { resize: vertical; }
+
+.feedback-form select:focus,
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  outline: 2px solid var(--accent-hover);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.feedback-form .field-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+/* Honeypot: hidden from humans, present for bots */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-error { color: #ff8a8a; }
+
+.form-thanks { text-align: center; padding: 40px 0; }
+.form-thanks h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 12px; }
+
 /* Footer */
 .footer {
   padding: 40px 0;

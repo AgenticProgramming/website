@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Send Feedback — Agentic Programming</title>
+  <meta name="description" content="Report typos, unclear passages, or disagreements in Agentic Programming by Jerod W. Wilkerson. Reader feedback drives the final revision pass before the print edition.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main>
+    <section class="section">
+      <div class="container narrow">
+        <p class="eyebrow center">Agentic Programming</p>
+        <h1 class="feedback-title">Send Feedback</h1>
+        <p>Found a typo? Hit a passage that didn&rsquo;t land? Disagree with an argument? This form goes straight to the author, and reader feedback drives the final revision pass before the print edition. Paste the sentence you&rsquo;re commenting on so I can find it in any edition. Anonymous is fine &mdash; leave your email if you&rsquo;d like credit in the acknowledgments when your report leads to a fix.</p>
+
+        <form id="feedback-form" class="feedback-form" novalidate>
+          <div class="field">
+            <label for="edition">Edition <span class="req">*</span></label>
+            <select id="edition" name="edition" required>
+              <option value="" selected disabled>Select an edition&hellip;</option>
+              <option>Leanpub PDF</option>
+              <option>EPUB</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="chapter">Chapter <span class="req">*</span></label>
+            <select id="chapter" name="chapter" required>
+              <option value="" selected disabled>Select a chapter&hellip;</option>
+              <option>Preface</option>
+              <option>About This Book</option>
+              <!-- Chapters 1–24 filled in by script below -->
+              <option>Principles</option>
+              <option>Appendix A</option>
+              <option>Glossary</option>
+              <option>Other / general</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="type">Type of feedback <span class="req">*</span></label>
+            <select id="type" name="type" required>
+              <option value="" selected disabled>Select a type&hellip;</option>
+              <option>Typo or error</option>
+              <option>Something unclear</option>
+              <option>Disagreement or pushback</option>
+              <option>Suggestion</option>
+              <option>General comment</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="quote">Paste the sentence or phrase you&rsquo;re commenting on <span class="req" id="quote-req" hidden>*</span></label>
+            <textarea id="quote" name="quote" rows="2"></textarea>
+            <p class="field-note" id="quote-note">Strongly encouraged &mdash; it lets me find the passage in any edition. No page numbers needed.</p>
+          </div>
+
+          <div class="field">
+            <label for="comment">Comment <span class="req">*</span></label>
+            <textarea id="comment" name="comment" rows="5" required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email">
+            <p class="field-note">Optional &mdash; include it if you&rsquo;d like to be credited in the acknowledgments or notified when your report is addressed.</p>
+          </div>
+
+          <!-- Honeypot: humans never see or fill this field -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="form-error" id="form-error" hidden></p>
+
+          <button type="submit" class="btn btn-primary" id="submit-btn">Send Feedback</button>
+        </form>
+
+        <div class="form-thanks" id="form-thanks" hidden>
+          <h2>Thank you</h2>
+          <p>Every report makes the book better.</p>
+          <p><a class="btn btn-secondary" href="/">Back to the Site</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Jerod W. Wilkerson. All rights reserved.</p>
+      <p><a href="mailto:author@agenticprogrammingbook.com">author@agenticprogrammingbook.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ===================================================================
+    // SETUP REQUIRED: replace with your deployed Google Apps Script
+    // web-app URL (see README "Feedback form" section for the steps).
+    // ===================================================================
+    var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwpo1PkjrcELFOvQKb2d1ME99R1nBBVQiRnfJ0QPlLNkp9b3CKEHq9qLmOruOkhO481vA/exec';
+
+    // Fill in Chapters 1–24 between "About This Book" and "Principles".
+    (function () {
+      var chapter = document.getElementById('chapter');
+      var anchor = null;
+      for (var i = 0; i < chapter.options.length; i++) {
+        if (chapter.options[i].text === 'Principles') { anchor = chapter.options[i]; break; }
+      }
+      for (var n = 1; n <= 24; n++) {
+        var opt = document.createElement('option');
+        opt.text = 'Chapter ' + n;
+        chapter.insertBefore(opt, anchor);
+      }
+    })();
+
+    (function () {
+      var form = document.getElementById('feedback-form');
+      var typeSel = document.getElementById('type');
+      var quote = document.getElementById('quote');
+      var quoteReq = document.getElementById('quote-req');
+      var quoteNote = document.getElementById('quote-note');
+      var errorEl = document.getElementById('form-error');
+      var submitBtn = document.getElementById('submit-btn');
+
+      var QUOTE_REQUIRED_TYPES = ['Typo or error', 'Something unclear', 'Disagreement or pushback'];
+
+      function quoteRequired() {
+        return QUOTE_REQUIRED_TYPES.indexOf(typeSel.value) !== -1;
+      }
+
+      typeSel.addEventListener('change', function () {
+        var req = quoteRequired();
+        quote.required = req;
+        quoteReq.hidden = !req;
+        quoteNote.textContent = req
+          ? 'Required for this feedback type — it lets me find the passage in any edition. No page numbers needed.'
+          : 'Strongly encouraged — it lets me find the passage in any edition. No page numbers needed.';
+      });
+
+      function showError(msg) {
+        errorEl.textContent = msg;
+        errorEl.hidden = false;
+      }
+
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        errorEl.hidden = true;
+
+        quote.required = quoteRequired();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Honeypot filled: silently pretend success, send nothing.
+        if (document.getElementById('website').value) {
+          form.hidden = true;
+          document.getElementById('form-thanks').hidden = false;
+          return;
+        }
+
+        if (ENDPOINT.indexOf('http') !== 0) {
+          showError('This form isn’t connected yet — please email your feedback to author@agenticprogrammingbook.com.');
+          return;
+        }
+
+        var data = new URLSearchParams();
+        ['edition', 'chapter', 'quote', 'type', 'comment', 'email'].forEach(function (name) {
+          data.append(name, form.elements[name].value);
+        });
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        // Apps Script web apps don't send CORS headers, so the response is
+        // opaque; a resolved fetch means the request was delivered.
+        fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data })
+          .then(function () {
+            form.hidden = true;
+            document.getElementById('form-thanks').hidden = false;
+          })
+          .catch(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Feedback';
+            showError('Something went wrong sending your feedback. Please try again, or email author@agenticprogrammingbook.com.');
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

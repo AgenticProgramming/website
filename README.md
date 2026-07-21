@@ -45,6 +45,37 @@ Apex domain `agenticprogrammingbook.com` — four A records and four AAAA record
 - **Email signup:** done — MailerLite embedded form (account `2457989`, form `4Bu8OJ`) in the `#notify` section; the hero *Get Notified* button scrolls to it. The MailerLite Universal loader is just before `</body>`. Before the first send, authenticate the sending domain (DKIM/SPF) in MailerLite.
 - **Social image:** add a cover image and uncomment the `og:image` meta tag in `index.html`.
 
+## Feedback form (`/feedback`)
+
+Reader-feedback form at `feedback/index.html`. Submissions POST to a Google Apps
+Script web app that appends one row per submission to a Google Sheet
+(columns: Timestamp, Edition, Chapter, Quoted text, Type, Comment, Email).
+A hidden honeypot field is checked client- and server-side; bot submissions are
+dropped without being written to the Sheet.
+
+One-time setup (in your Google account):
+
+1. Create a Google Sheet named **Agentic Programming Feedback**. In row 1 of the
+   first tab, enter the headers: `Timestamp`, `Edition`, `Chapter`,
+   `Quoted text`, `Type`, `Comment`, `Email`.
+2. In the Sheet: **Extensions → Apps Script**. Delete the placeholder code and
+   paste the contents of `feedback/apps-script.gs`. Save.
+3. **Deploy → New deployment → Select type: Web app.**
+   - Description: anything (e.g. "feedback form").
+   - Execute as: **Me**.
+   - Who has access: **Anyone**. (Required so the form can POST without a
+     Google login. The URL is unguessable and the script can only append to
+     this Sheet.)
+4. Click **Deploy**, authorize when prompted (you'll see an "unverified app"
+   warning for your own script — Advanced → Go to project), and copy the
+   **Web app URL** (ends in `/exec`).
+5. Paste that URL into the `ENDPOINT` constant near the bottom of
+   `feedback/index.html`, replacing `PASTE_APPS_SCRIPT_WEB_APP_URL_HERE`.
+   Commit and push.
+
+If you later edit the script, use **Deploy → Manage deployments → Edit →
+New version** so the same `/exec` URL keeps working.
+
 ## Preview locally
 
 Just open `index.html` in a browser, or serve the folder:
