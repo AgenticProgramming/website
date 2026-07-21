@@ -12,7 +12,7 @@ function doPost(e) {
   }
 
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-  // Columns: Timestamp, Edition, Chapter, Quoted text, Type, Comment, Email
+  // Columns: Timestamp, Edition, Chapter, Quoted text, Type, Comment, Name, Email
   sheet.appendRow([
     new Date(),
     p.edition || '',
@@ -20,6 +20,7 @@ function doPost(e) {
     p.quote || '',
     p.type || '',
     p.comment || '',
+    p.name || '',
     p.email || ''
   ]);
 

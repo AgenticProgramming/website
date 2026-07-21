@@ -65,9 +65,15 @@
           </div>
 
           <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name">
+            <p class="field-note">Optional &mdash; your name and email are only needed if you&rsquo;d like to be listed on the acknowledgments page.</p>
+          </div>
+
+          <div class="field">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" autocomplete="email">
-            <p class="field-note">Optional &mdash; include it if you&rsquo;d like to be credited in the acknowledgments or notified when your report is addressed.</p>
+            <p class="field-note">Optional &mdash; also lets me notify you when your report is addressed.</p>
           </div>
 
           <!-- Honeypot: humans never see or fill this field -->
@@ -170,7 +176,7 @@
         }
 
         var data = new URLSearchParams();
-        ['edition', 'chapter', 'quote', 'type', 'comment', 'email'].forEach(function (name) {
+        ['edition', 'chapter', 'quote', 'type', 'comment', 'name', 'email'].forEach(function (name) {
           data.append(name, form.elements[name].value);
         });
 

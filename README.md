@@ -49,7 +49,7 @@ Apex domain `agenticprogrammingbook.com` — four A records and four AAAA record
 
 Reader-feedback form at `feedback/index.html`. Submissions POST to a Google Apps
 Script web app that appends one row per submission to a Google Sheet
-(columns: Timestamp, Edition, Chapter, Quoted text, Type, Comment, Email).
+(columns: Timestamp, Edition, Chapter, Quoted text, Type, Comment, Name, Email).
 A hidden honeypot field is checked client- and server-side; bot submissions are
 dropped without being written to the Sheet.
 
@@ -57,7 +57,7 @@ One-time setup (in your Google account):
 
 1. Create a Google Sheet named **Agentic Programming Feedback**. In row 1 of the
    first tab, enter the headers: `Timestamp`, `Edition`, `Chapter`,
-   `Quoted text`, `Type`, `Comment`, `Email`.
+   `Quoted text`, `Type`, `Comment`, `Name`, `Email`.
 2. In the Sheet: **Extensions → Apps Script**. Delete the placeholder code and
    paste the contents of `feedback/apps-script.gs`. Save.
 3. **Deploy → New deployment → Select type: Web app.**
