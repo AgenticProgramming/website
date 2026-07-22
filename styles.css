@@ -102,6 +102,10 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent-hover); }
 
 .cta-row-left { justify-content: flex-start; }
+.cta-row + .cta-row { margin-top: 14px; }
+@media (max-width: 600px) {
+  .cta-row-left { justify-content: center; }
+}
 
 .cta-note {
   font-size: 0.85rem;
