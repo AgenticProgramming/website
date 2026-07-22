@@ -183,6 +183,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 .card h3 { margin: 0 0 10px; font-size: 1.15rem; color: var(--text); }
 .card p { margin: 0; font-size: 0.97rem; }
+.card-wide { grid-column: 1 / -1; }
 
 /* Author */
 .author-layout {
