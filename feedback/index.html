@@ -42,6 +42,12 @@
           </div>
 
           <div class="field">
+            <label for="section">Section number</label>
+            <input type="text" id="section" name="section" inputmode="decimal" autocomplete="off">
+            <p class="field-note">Optional &mdash; e.g. 3.2. Most front and back matter doesn&rsquo;t have sections.</p>
+          </div>
+
+          <div class="field">
             <label for="type">Type of feedback <span class="req">*</span></label>
             <select id="type" name="type" required>
               <option value="" selected disabled>Select a type&hellip;</option>
@@ -176,7 +182,7 @@
         }
 
         var data = new URLSearchParams();
-        ['edition', 'chapter', 'quote', 'type', 'comment', 'name', 'email'].forEach(function (name) {
+        ['edition', 'chapter', 'section', 'quote', 'type', 'comment', 'name', 'email'].forEach(function (name) {
           data.append(name, form.elements[name].value);
         });
 
