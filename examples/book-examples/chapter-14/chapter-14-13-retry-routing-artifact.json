@@ -1,0 +1,11 @@
+{
+  "preserve": [
+    "implementation.patch",
+    "workflow-state.json",
+    "runtime-logs.txt"
+  ],
+  "unresolved": [
+    "payment idempotency locking"
+  ],
+  "reroute_to": "implementer"
+}

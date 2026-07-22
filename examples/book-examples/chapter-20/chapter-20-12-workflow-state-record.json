@@ -1,0 +1,25 @@
+{
+  "execution_id": "epic-42",
+  "title": "Subscription Billing",
+  "branch": "epic-42-subscription-billing",
+
+  "status": "running",
+  "current_stage": "integration",
+
+  "stories_completed": [
+    "story-184",
+    "story-185",
+    "story-189"
+  ],
+
+  "stories_running": [
+    "story-186",
+    "story-187"
+  ],
+
+  "stories_blocked": [
+    "story-188"
+  ],
+
+  "retry_count": 0
+}

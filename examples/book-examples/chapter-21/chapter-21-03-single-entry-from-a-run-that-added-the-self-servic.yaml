@@ -1,0 +1,14 @@
+question: When a partial refund is issued against an invoice
+  that has multiple line items, should the refund apply to the
+  whole invoice or be allocated to specific line items?
+decided_by: Product Owner agent
+source: no source; default applied (specification and billing
+  standards are both silent on line-item allocation)
+rationale: Allocating to specific line items is more flexible
+  but adds a data model the spec does not call for. Whole-invoice
+  refunds match the existing partial-refund behavior already in
+  the billing product, so chose whole-invoice to stay consistent
+  and avoid a schema change.
+confidence: low
+blast_radius: high (reporting and the invoice state machine
+  will likely build on this refund-allocation choice)

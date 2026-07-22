@@ -1,0 +1,15 @@
+# story-001 Completion Report
+
+## Story
+Add l5-status script showing a snapshot of story runs
+
+## Outcome
+Completed on branch story/story-001 after 0 retries.
+
+## Evidence
+- test-results.json
+- verification/iteration-1.json (passed)
+- documentation-report.md
+
+## Next Step
+Review the branch and merge it when you accept the story.

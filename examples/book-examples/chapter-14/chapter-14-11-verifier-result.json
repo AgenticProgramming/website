@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "blocking_issues": [
+    {
+      "severity": "high",
+      "issue": "Repeated payment events bypass idempotency locking"
+    }
+  ],
+  "retry_recommended": true,
+  "retry_scope": [
+    "payment idempotency locking",
+    "repeated payment event handling"
+  ]
+}

@@ -1,0 +1,13 @@
+Implement JWT authentication.
+
+Requirements:
+- Support refresh tokens
+- Existing login endpoints must remain unchanged
+
+Architecture:
+- Spring Boot
+- PostgreSQL
+
+Relevant files:
+- AuthController.java
+- TokenService.java

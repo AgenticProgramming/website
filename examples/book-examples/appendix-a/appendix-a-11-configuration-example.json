@@ -1,0 +1,22 @@
+[Runtime State Layer]
+The coordinator injects the current workflow state below. Treat the
+injected content as authoritative. Do not infer workflow state from
+historical discussions or archived artifacts.
+
+Story:
+{{story}}
+
+Repository standards:
+{{repository_standards}}
+
+Architecture documents:
+{{architecture_docs}}
+
+Most recent verifier finding:
+{{latest_verifier_finding}}
+
+Retry guidance:
+{{retry_guidance}}
+
+Retry state:
+{{retry_state}}

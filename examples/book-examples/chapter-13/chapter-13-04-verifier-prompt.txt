@@ -1,0 +1,4 @@
+Evaluate whether acceptance criteria were satisfied.
+Reject incomplete implementations.
+Identify architectural violations.
+Return structured pass/fail output.

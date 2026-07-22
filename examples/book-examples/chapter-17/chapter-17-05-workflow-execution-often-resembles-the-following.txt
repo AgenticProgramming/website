@@ -1,0 +1,21 @@
+LOAD workflow state
+
+WHILE workflow is active
+  DETERMINE current stage
+  LOAD required artifacts
+  EXECUTE stage
+
+  SAVE generated artifacts
+  UPDATE workflow state
+
+  IF stage failed THEN
+    IF retry allowed THEN
+      LOOK UP workflow route
+      EXECUTE workflow route
+    ELSE
+      ESCALATE workflow
+    END IF
+  ELSE
+    ADVANCE workflow
+  END IF
+END WHILE

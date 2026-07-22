@@ -1,0 +1,23 @@
+[Runtime State Layer]
+The coordinator injects the current workflow state into the
+placeholders below. Treat the injected content as authoritative. Do
+not infer workflow state from historical discussions, implementation
+comments, or archived artifacts.
+
+Acceptance criteria:
+- duplicate webhook deliveries do not create duplicate charges
+- payment processing remains idempotent during webhook retries
+
+Most recent verifier finding:
+None
+
+Accepted artifacts:
+- payment_processor.ts
+- payment_webhook_handler.ts
+
+Execution evidence:
+- tests: 40 of 42 passing
+- failing: duplicate_webhook_delivery_creates_two_charges
+
+Retry state:
+None

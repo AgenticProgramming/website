@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "executed_suites": [
+    "invitation_e2e_tests",
+    "invitation_integration_tests",
+    "role_assignment_tests"
+  ],
+  "failed_tests": [
+    {
+      "suite": "invitation_e2e_tests",
+      "test": "accepted_invitation_receives_default_role",
+      "expected": "accepted invitation is assigned the default role",
+      "actual": "accepted invitation receives no role"
+    }
+  ]
+}

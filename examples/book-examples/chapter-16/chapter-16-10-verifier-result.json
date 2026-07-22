@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "blocking_issues": [
+    {
+      "severity": "high",
+      "issue": "retry-state corruption during rollback recovery"
+    }
+  ],
+  "retry_recommended": true,
+  "retry_scope": [
+    "retry-state serialization",
+    "malformed payload recovery"
+  ]
+}

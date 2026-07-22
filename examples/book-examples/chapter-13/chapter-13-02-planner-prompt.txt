@@ -1,0 +1,4 @@
+Break the requested story into implementation stages.
+Preserve existing repository conventions.
+Identify verification requirements.
+Do not modify unrelated subsystems.

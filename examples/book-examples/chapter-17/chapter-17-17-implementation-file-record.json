@@ -1,0 +1,6 @@
+{
+  "files_modified": [
+    "billing/subscription_service.ts",
+    "auth/middleware.ts"
+  ]
+}

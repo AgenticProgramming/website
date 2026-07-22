@@ -1,0 +1,12 @@
+{
+  "inspection_id": "inspection-44",
+  "findings": [
+    {
+      "type": "technical_debt",
+      "severity": "medium",
+      "description":
+        "Four independent JWT validation
+         implementations detected"
+    }
+  ]
+}

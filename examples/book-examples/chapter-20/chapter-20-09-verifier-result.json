@@ -1,0 +1,13 @@
+{
+  "status": "failed",
+  "blocking_issues": [
+    {
+      "severity": "high",
+      "issue":
+        "Production rollout procedure
+         required by epic objectives
+         has not been completed"
+    }
+  ],
+  "epic_complete": false
+}

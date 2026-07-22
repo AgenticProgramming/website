@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "reason": "Expired JWT tokens return HTTP 500 instead of 401.",
+  "retry_recommended": true
+}

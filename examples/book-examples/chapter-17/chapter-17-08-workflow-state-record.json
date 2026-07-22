@@ -1,0 +1,14 @@
+{
+  "execution_id": "story-184",
+  "current_stage": "implementation",
+  "retry_count": 3,
+  "status": "running",
+  "branch": "story-184-cancellation",
+  "last_verification_status": "failed",
+  "artifacts": [
+    "implementation.patch",
+    "changed-files.json",
+    "implementation-summary.md",
+    "test-results.json",
+    "verification-result.json"  ]
+}

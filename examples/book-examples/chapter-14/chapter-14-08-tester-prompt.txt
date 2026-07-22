@@ -1,0 +1,7 @@
+The current run's context is injected below.
+From the injected changed-files record, load the implementer's source for the current run and identify which files need validation.
+Generate and execute validation for the active workflow stage.
+Preserve structured failure evidence.
+Validate behavioral requirements independently from implementation.
+Record runtime failures precisely.
+Generate machine-readable outputs.

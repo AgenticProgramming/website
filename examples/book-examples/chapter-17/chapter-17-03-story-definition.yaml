@@ -1,0 +1,54 @@
+story:
+  id: story-184
+  title: Add Subscription Cancellation Support
+
+description:
+  Add support for authenticated subscription cancellation
+  while preserving billing history and existing webhook
+  behavior.
+
+acceptance_criteria:
+  - Authenticated users can cancel active subscriptions
+  - Cancellation endpoint returns HTTP 200 on success
+  - Subscription state updates immediately after cancellation
+  - Existing invoices and billing history remain accessible
+  - Existing webhook processing behavior remains unchanged
+  - All existing billing tests continue to pass
+  - New integration tests verify cancellation behavior
+
+technical_plan:
+  domain_behavior:
+    - Preserve historical billing records after cancellation
+    - Prevent cancellation flow from modifying invoice history
+    - Maintain compatibility with existing subscription webhooks
+
+  implementation_steps:
+    - Add authenticated cancellation endpoint
+    - Update BillingService to support cancellation state transitions
+    - Persist updated subscription state after cancellation
+    - Add integration tests for cancellation flow
+    - Verify existing webhook handlers continue functioning unchanged
+
+likely_file_changes:
+  - file: subscription_controller.ts
+    reason: Add cancellation endpoint
+
+  - file: billing_service.ts
+    reason: Add cancellation state handling
+
+  - file: subscription_repository.ts
+    reason: Persist updated subscription state
+
+  - file: subscription_integration_tests.ts
+    reason: Add cancellation integration tests
+
+verification_requirements:
+  - Verify cancelled subscriptions no longer appear as active
+  - Verify invoice history remains accessible after cancellation
+  - Verify webhook processing behavior remains unchanged
+  - Run all existing billing integration tests
+
+constraints:
+  - Do not modify webhook event schemas
+  - Do not remove existing billing records
+  - Preserve existing API response structure

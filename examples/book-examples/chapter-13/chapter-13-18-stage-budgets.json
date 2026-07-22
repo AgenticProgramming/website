@@ -1,0 +1,10 @@
+{
+  "implementer": {
+    "max_tokens": 800000,
+    "max_retries": 2
+  },
+  "verifier": {
+    "max_tokens": 200000,
+    "max_retries": 1
+  }
+} 

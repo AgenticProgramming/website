@@ -1,0 +1,9 @@
+{
+  "allowed_directories": [
+    "billing/"
+  ],
+  "preserve_behavior": [
+    "Existing authentication flows remain unchanged",
+    "Invoice history remains accessible"
+  ]
+}

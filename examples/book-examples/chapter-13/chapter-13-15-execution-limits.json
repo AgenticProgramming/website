@@ -1,0 +1,5 @@
+{
+  "max_retries": 2,
+  "max_workflow_duration_minutes": 90,
+  "max_context_tokens": 2000000
+}

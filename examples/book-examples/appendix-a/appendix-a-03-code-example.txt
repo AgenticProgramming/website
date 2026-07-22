@@ -1,0 +1,16 @@
+## Core principles
+
+- Deterministic where possible, probabilistic where necessary. The
+  Story Coordinator is deterministic Python; agents are invoked only
+  where judgment is required.
+- Agents cooperate through structured artifacts routed by the
+  coordinator, never by talking to each other.
+- Verdicts come from structured artifacts (`verification-result.json`),
+  never from agent narrative.
+- Workflow state (`state.json`, what is true now) is kept separate
+  from execution history (`events.log`, what happened).
+- Known context is injected into prompt templates by the coordinator;
+  agents read source code themselves by reference because the
+  coordinator cannot enumerate it in advance.
+- Rules are enforced by the coordinator, not merely suggested to
+  agents.

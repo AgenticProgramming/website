@@ -1,0 +1,17 @@
+Previous retries attempted:
+- parser normalization changes,
+- retry-state serialization fixes, and
+- malformed payload recovery handling.
+
+Confirmed failures:
+- retry-state corruption during rollback recovery
+- execution reporting contract violations
+
+Accepted stable artifacts:
+- verifier schema v3
+- workflow execution reporting format
+- accepted interface definitions
+
+Do not revisit:
+- rejected retry approaches in:
+  - .harness/archive/rejected-retries/

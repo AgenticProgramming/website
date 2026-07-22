@@ -1,0 +1,9 @@
+"unverified": [
+  "tester-changed-files.json is absent from this run directory, so
+   the runtime injection of the tester's record could not be observed
+   end-to-end in this run. This is expected: the coordinator loaded
+   the workflow definition before this story modified it, so the
+   tester stage ran under the pre-story-002 definition. The behavior
+   itself is verified by unit tests ... and takes effect for runs
+   started after this story merges."
+]

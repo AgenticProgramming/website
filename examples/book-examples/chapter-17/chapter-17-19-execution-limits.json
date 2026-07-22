@@ -1,0 +1,5 @@
+{
+  "max_retries": 5,
+  "max_duration_minutes": 90,
+  "max_tokens": 2000000
+}

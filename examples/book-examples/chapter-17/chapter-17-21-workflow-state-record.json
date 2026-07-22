@@ -1,0 +1,7 @@
+{
+  "execution_id": "story-184",
+  "current_stage": "verification",
+  "retry_count": 3,
+  "status": "escalated",
+  "escalation_reason": "Retry limit exceeded"
+}

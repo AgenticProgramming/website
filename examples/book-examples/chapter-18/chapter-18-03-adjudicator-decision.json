@@ -1,0 +1,7 @@
+{
+  "decision":  "reverse",
+  "reason":
+    "Repository standards explicitly permit
+     alternate integration patterns for
+     experimental providers"
+}

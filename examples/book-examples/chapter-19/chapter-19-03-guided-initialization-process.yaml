@@ -1,0 +1,10 @@
+Project Type:
+  REST API
+Language:
+  Java
+Framework:
+  Spring Boot
+Database:
+  PostgreSQL
+Architecture:
+  Layered

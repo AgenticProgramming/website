@@ -1,0 +1,10 @@
+harness-library/
+  standards/
+    spring-boot/
+      architecture.md
+      coding.md
+      testing.md
+    node-express/
+      architecture.md
+      coding.md
+      testing.md

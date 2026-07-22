@@ -1,0 +1,20 @@
+objective: |
+  Add a self-service refund flow to the billing product so support
+  staff can issue partial and full refunds without database access.
+
+constraints:
+  - refunds must respect the existing idempotency guarantees
+  - no changes to the public checkout API
+  - PCI scope must not expand
+
+acceptance_criteria:
+  - a full refund returns the charge to the customer and updates state
+  - a partial refund is reflected in the invoice and the ledger
+  - duplicate refund requests are rejected, not reprocessed
+
+standards: .harness/standards/billing/
+architecture: .harness/docs/BILLING_ARCHITECTURE.md
+
+defaults:
+  - refunds are soft-deleted (no developer preference; reversible)
+  - refund reason codes use the existing enum (conventional)

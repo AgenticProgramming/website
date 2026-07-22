@@ -1,0 +1,20 @@
+story-workflow
+  implementation
+  testing
+  verification
+  documentation
+  pull_request
+
+bugfix-workflow
+  implementation
+  testing
+  verification
+  documentation
+  pull_request
+
+maintenance-workflow
+  implementation
+  testing
+  verification
+  documentation
+  pull_request

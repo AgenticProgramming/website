@@ -1,0 +1,8 @@
+START implementer subprocess
+WAIT for implementation output
+
+RUN repository tests
+COLLECT test results
+
+START verifier subprocess
+WAIT for verifier result

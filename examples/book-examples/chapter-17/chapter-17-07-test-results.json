@@ -1,0 +1,9 @@
+{
+  "tests_written": 18,
+  "tests_run": 18,
+  "tests_passed": 17,
+  "tests_failed": 1,
+  "failed_tests": [
+    "cancelled_subscription_not_active"
+  ]
+}

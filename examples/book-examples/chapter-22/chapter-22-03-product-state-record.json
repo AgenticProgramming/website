@@ -1,0 +1,7 @@
+"epics_running": [
+  "epic-42",
+  "epic-43"
+],
+"blocked_on": {
+  "epic-43": "consultation-117"
+}

@@ -1,0 +1,7 @@
+{
+  "decision": "affirm",
+  "reason":
+    "Repository standards require the
+     Strategy pattern for all payment
+     providers"
+}

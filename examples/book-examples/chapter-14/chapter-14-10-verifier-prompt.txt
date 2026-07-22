@@ -1,0 +1,5 @@
+Evaluate whether workflow acceptance criteria were satisfied.
+Reject incomplete execution.
+Identify architectural violations.
+Return structured pass/fail output.
+Recommend retries only when failures are bounded.

@@ -1,0 +1,12 @@
+{
+  "inspection_id": "inspection-43",
+  "findings": [
+    {
+      "type": "architecture",
+      "severity": "high",
+      "description":
+        "Payment logic duplicated across
+         three services"
+    }
+  ]
+}

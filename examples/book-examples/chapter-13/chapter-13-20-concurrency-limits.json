@@ -1,0 +1,4 @@
+{
+  "max_concurrent_workflows": 5,
+  "max_parallel_verifiers": 2
+}

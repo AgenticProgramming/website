@@ -1,0 +1,13 @@
+story:
+  title: JWT Authentication
+
+tasks:
+  - implement login endpoint
+  - create token middleware
+  - add expiration handling
+  - generate authentication tests
+
+acceptance_criteria:
+  - expired tokens return 401
+  - valid tokens authenticate correctly
+  - middleware remains isolated from billing logic

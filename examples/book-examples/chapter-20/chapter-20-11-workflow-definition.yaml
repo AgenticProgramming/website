@@ -1,0 +1,28 @@
+epic_workflow:
+  stages:
+    - epic_planning
+    - story_workflow
+    - integration
+    - epic_implementation
+    - epic_testing
+    - epic_verification
+    - epic_documentation
+
+  retry_routes:
+    story_workflow_failure:
+      reroute_to: story_workflow
+    ...
+
+  artifact_routes:
+    story_workflow:
+      inputs:
+        - epic-plan.yaml
+        - epic-state.json
+      outputs:
+        - story-plan.yaml
+        - implementation.patch
+    ...
+
+  escalation_rules:
+    max_epic_retries_exceeded:
+      action: escalate

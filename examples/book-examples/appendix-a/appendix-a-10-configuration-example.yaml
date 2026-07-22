@@ -1,0 +1,6 @@
+Do not:
+- refactor unrelated modules,
+- redesign workflow architecture,
+- modify accepted artifacts outside the retry scope,
+- create new tests (the tester stage owns new validation), or
+- weaken, skip, or delete existing tests.

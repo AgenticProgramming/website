@@ -1,0 +1,24 @@
+Use the injected retry state below to determine:
+- authorized modification scope,
+- active retry objectives, and
+- protected workflow artifacts.
+
+Do not:
+- redesign workflow orchestration,
+- refactor unrelated modules,
+- alter accepted verifier schemas, or
+- modify artifacts outside the authorized retry scope.
+
+Preserve all accepted workflow behavior.
+
+Verification result:
+{{verification_result}}
+
+Retry guidance:
+{{retry_guidance}}
+
+Retry state:
+{{retry_state}}
+
+Accepted artifacts:
+{{accepted_artifacts}}

@@ -1,0 +1,16 @@
+{
+  "workflow_id": "story-workflow",
+  "execution_id": "story-184",
+  "stage": "implementer",
+  "objective": "Prevent duplicate payment processing during repeated Stripe webhook delivery",
+  "constraints": [
+    "preserve existing payment-processing workflows",
+    "avoid unrelated checkout refactors",
+    "modify only approved files"
+  ],
+  "available_artifacts": [
+    "story-plan.yaml",
+    "repository-summary.md",
+    "payment-webhook-examples.json"
+  ]
+}

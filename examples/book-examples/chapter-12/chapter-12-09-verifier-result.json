@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "reason": "Expired tokens return HTTP 500",
+  "retry_recommended": true
+}

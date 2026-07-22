@@ -1,0 +1,4 @@
+Add an l5-status script that shows a snapshot of story runs. Listing
+all runs should show each run's story id, status, current stage, and
+retry count. Passing a story id should show that story's detail,
+including its recent events.

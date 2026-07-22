@@ -1,0 +1,13 @@
+[2026-07-06 13:00:01] workflow started for story-001
+[2026-07-06 13:00:01] implementer stage started
+[2026-07-06 13:02:47] implementer stage completed
+[2026-07-06 13:02:47] tester stage started
+[2026-07-06 13:05:00] tester stage completed
+[2026-07-06 13:05:00] verifier stage started
+[2026-07-06 13:07:11] verification failed; retry 1 of 2 rerouted to implementer
+[2026-07-06 13:07:11] implementer stage started
+[2026-07-06 13:08:26] implementer stage completed
+[2026-07-06 13:08:26] tester stage started
+[2026-07-06 13:10:21] tester stage completed
+[2026-07-06 13:10:21] verifier stage started
+[2026-07-06 13:11:45] escalated: verification failed and the verifier did not recommend a retry

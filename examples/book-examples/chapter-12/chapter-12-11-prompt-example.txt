@@ -1,0 +1,4 @@
+pull_request/
+  pr-description.md
+  execution-summary.md
+  verification-result.json

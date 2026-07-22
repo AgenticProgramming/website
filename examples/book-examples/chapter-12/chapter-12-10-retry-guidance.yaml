@@ -1,0 +1,4 @@
+retry_requirements:
+  - handle token expiration explicitly
+  - preserve middleware structure
+  - add expiration test coverage

@@ -1,0 +1,12 @@
+{
+  "disputed_finding":
+    "Architecture standards violation",
+  "reason":
+    "Experimental integration exception applies",
+  "supporting_artifacts": [
+    "verification-result.json",
+    "architecture.md"
+  ],
+  "requested_action":
+    "reverse"
+}

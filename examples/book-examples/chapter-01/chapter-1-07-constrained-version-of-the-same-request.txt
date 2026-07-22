@@ -1,0 +1,8 @@
+Design a payment system.
+
+Requirements:
+- Use Spring Boot
+- Use PostgreSQL
+- Support Stripe only
+- Preserve existing APIs
+- Do not modify authentication

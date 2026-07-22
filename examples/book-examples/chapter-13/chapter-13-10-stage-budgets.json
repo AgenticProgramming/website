@@ -1,0 +1,16 @@
+{
+  "stages": [
+    {
+      "name": "implementer",
+      "prompt": "implementer.md"
+    },
+    {
+      "name": "tester",
+      "prompt": "tester.md"
+    },
+    {
+      "name": "verifier",
+      "prompt": "verifier.md"
+    }
+  ]
+}

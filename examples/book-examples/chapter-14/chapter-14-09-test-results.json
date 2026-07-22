@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "executed_suites": [
+    "subscription_reconciliation_tests",
+    "duplicate_webhook_delivery_tests",
+    "billing_state_transition_tests"
+  ],
+  "failed_tests": [
+    {
+      "suite": "duplicate_webhook_delivery_tests",
+      "test": "repeated_delivery_creates_single_charge",
+      "expected": "one charge per payment event",
+      "actual": "two charges created on webhook redelivery"
+    }
+  ]
+}

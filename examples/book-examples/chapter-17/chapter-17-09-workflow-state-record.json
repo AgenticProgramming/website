@@ -1,0 +1,14 @@
+{
+  "execution_id": "story-184",
+  "current_stage": "verification",
+  "retry_count": 3,
+  "status": "escalated",
+  "escalation_reason": "Repeated verifier failure",
+  "artifacts": [
+    "implementation.patch",
+    "changed-files.json",
+    "implementation-summary.md",
+    "test-results.json",
+    "verification-result.json"
+  ]
+}

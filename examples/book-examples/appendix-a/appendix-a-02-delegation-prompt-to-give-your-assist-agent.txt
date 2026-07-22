@@ -1,0 +1,34 @@
+We are building a level-three agentic harness called l5: a story
+execution system, implemented in Python 3 using only the standard
+library. Stories enter with an approved plan, move through
+implementation, testing, and verification, retry when verification
+fails, and end completed or escalated. This repository is both the
+harness repository and its own first target repository.
+
+Before any code, write .harness/docs/ARCHITECTURE.md describing what we will
+build. Cover the directory layout: workflows/ (workflow definitions),
+prompts/ (reusable agent prompt templates with {{placeholder}}
+injection), orchestration/ (the Story Coordinator and its supporting
+modules), rules/ (execution rules enforced by the coordinator),
+scripts/ (thin l5- entry points), templates/ (starter config and
+standards that l5-init will later copy into new target
+repositories), and .harness/ as target-repository state
+(config.yaml, standards/, docs/, stories/, runs/, logs/).
+
+Cover the core principles: deterministic where possible,
+probabilistic where necessary; agents cooperate through structured
+artifacts routed by the coordinator, never by talking to each other;
+verdicts come from structured artifacts, never from agent narrative;
+workflow state (state.json, what is true now) stays separate from
+execution history (events.log, what happened); known context is
+injected into prompt templates by the coordinator, while agents read
+source code themselves by reference; rules are enforced by the
+coordinator, not merely suggested to agents.
+
+Then create README.md, .harness/config.yaml with starter settings,
+starter repository standards in .harness/standards/ (architecture,
+coding, testing) recording the conventions we are committing to
+(scripts stay thin entry points with logic in orchestration/,
+standard library only, coordinator tests never invoke a model), a
+.gitignore that keeps .harness/runs/ and .harness/logs/ out of
+version control, and the empty directory layout. Commit when done.

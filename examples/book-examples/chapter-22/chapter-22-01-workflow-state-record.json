@@ -1,0 +1,22 @@
+{
+  "execution_id": "product-7",
+  "title": "Customer Portal",
+  "branch": "product-7-customer-portal",
+
+  "status": "running",
+  "current_stage": "epic_execution",
+
+  "epics_completed": [
+    "epic-40",
+    "epic-41"
+  ],
+
+  "epics_running": [
+    "epic-42",
+    "epic-43"
+  ],
+
+  "epics_blocked": [
+    "epic-44"
+  ]
+}

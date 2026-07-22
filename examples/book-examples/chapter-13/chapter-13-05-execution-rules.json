@@ -1,0 +1,8 @@
+{
+  "max_retries": 2,
+  "require_verifier_pass": true,
+  "blocked_paths": [
+    "infrastructure/",
+    "production-secrets/"
+  ]
+}

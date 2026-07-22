@@ -1,0 +1,5 @@
+{
+  "issue": "Duplicate webhook delivery creates multiple customer charges",
+  "location": "src/billing/payment_processor.ts",
+  "required_behavior": "Idempotency lock must prevent duplicate charge creation when webhook delivery repeats"
+}

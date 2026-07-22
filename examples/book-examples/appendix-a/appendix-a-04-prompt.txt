@@ -1,0 +1,32 @@
+Complete .harness/config.yaml with these settings: project
+level-five; workflow story-workflow; branch_prefix story/;
+permission_mode acceptEdits; model left unset, so runs use the
+developer's default Claude Code model; stories, runs, and logs
+directories
+under .harness/; standards_dir .harness/standards;
+architecture_docs listing .harness/docs/ARCHITECTURE.md; test_command
+.venv/bin/python -m pytest tests/ -q; and an allowed_tools list of
+Bash permission patterns granting exactly what stage agents need:
+the test command's interpreter, python3, chmod, ls, cat, and
+read-only git inspection (git status, git diff, git log).
+
+Create workflows/story-workflow.json defining four stages in order:
+implementer (prompt implementer.md; outputs changed-files.json and
+implementation-summary.md), tester (prompt tester.md; output
+test-results.json), verifier (prompt verifier.md; output
+verification-result.json; on_failure rerouting to the implementer
+with max_retries 2), and documenter (prompt documenter.md; output
+documentation-report.md). Add an escalation rule: exceeding max
+retries escalates.
+
+Create rules/execution-rules.json: max_retries 2,
+require_verifier_pass true, and blocked_paths .git/,
+.harness/runs/, and rules/.
+
+Create scripts/l5-init: a thin Python script that initializes a
+.harness/ structure (config, starter standards, and the stories,
+runs, and logs directories) in any target repository, generated
+from templates kept in templates/ with the project name and test
+command filled in.
+
+Commit when the four are in place.

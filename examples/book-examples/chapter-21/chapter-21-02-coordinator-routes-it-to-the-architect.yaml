@@ -1,0 +1,6 @@
+question: On a failed downstream billing call during refund
+  processing, should the caller retry or surface the error?
+architect: Surface the error. RESILIENCE.md specifies that
+  write operations that may have side effects are not retried
+  automatically; the caller decides. Refunds are such an
+  operation.

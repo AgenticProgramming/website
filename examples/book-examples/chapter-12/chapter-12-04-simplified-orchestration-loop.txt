@@ -1,0 +1,17 @@
+LOOP while the workflow is still active
+    Determine the current workflow stage
+
+    Execute the agent or process for that stage
+
+    Save all generated artifacts and update workflow state
+
+    IF verification failed THEN
+        IF the workflow can retry THEN
+            return execution to the appropriate retry stage
+        ELSE
+            escalate the workflow for human review
+        END IF
+    ELSE
+        Advance the workflow to the next stage
+    END IF
+END LOOP

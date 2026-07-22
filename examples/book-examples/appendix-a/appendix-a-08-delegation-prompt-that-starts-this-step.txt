@@ -1,0 +1,34 @@
+Write six prompt templates in prompts/, one per agent role:
+planner.md, implementer.md, tester.md, verifier.md, documenter.md,
+and assist.md. The four workflow-stage templates use five labeled
+layers: [Harness Layer] durable rules for every agent; [Role Layer]
+responsibilities and an explicit do-not list; [Workflow Layer]
+priorities; [Stage Layer] the current objective; [Runtime State
+Layer] {{placeholder}} fields the coordinator fills at run time,
+with injected content treated as authoritative.
+
+Role boundaries to enforce: the implementer modifies only files in
+the story's approved scope, runs the existing suite locally, and
+never creates, weakens, or deletes tests; the tester generates and
+runs validation independently of the implementation and does not
+decide whether the workflow continues; the verifier evaluates
+evidence against the acceptance criteria, treats uncertainty as
+distinct from failure, and never implements fixes; the documenter
+updates the architecture documents and changes nothing else.
+
+Each stage writes its output artifacts to {{run_dir}} with the JSON
+schema inline in the template: changed-files.json and
+implementation-summary.md from the implementer; test-results.json
+from the tester; verification-result.json (status, blocking_issues,
+unverified, retry_recommended) plus retry-guidance.json on a
+recommended retry from the verifier; documentation-report.md from
+the documenter.
+
+planner.md drives the interactive l5-plan session: interview me,
+ask about decisions that are expensive to reverse, apply stated
+defaults to cheap ones, and write the approved story to
+.harness/stories/story-NNN.yaml in a format you prescribe precisely
+in the prompt. assist.md is the harness copilot: investigate runs
+from state, events, and artifacts, cite the files used, and propose
+harness-improvement stories. It does not maintain the architecture
+document; the documenter stage owns that. Commit when done.

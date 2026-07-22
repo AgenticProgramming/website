@@ -10,6 +10,9 @@ Static site (plain HTML/CSS, no build step) hosted on GitHub Pages with a custom
 
 - `index.html` — the page
 - `styles.css` — styles
+- `feedback/` — reader-feedback form (see below)
+- `errata/` — errata page (pre-release notice now; post-print corrections later)
+- `examples/` — book examples page, rendered from `examples/book-examples/manifest.json`
 - `favicon.svg` — favicon (AI Fluency Ladder motif)
 - `CNAME` — custom domain for GitHub Pages (`agenticprogrammingbook.com`)
 - `.nojekyll` — tells Pages to serve files as-is (no Jekyll processing)
@@ -75,6 +78,25 @@ One-time setup (in your Google account):
 
 If you later edit the script, use **Deploy → Manage deployments → Edit →
 New version** so the same `/exec` URL keeps working.
+
+## Errata page (`/errata`)
+
+Static page. While the book is pre-release it shows a notice; once the book is in
+print, unhide the `#errata-list` div in `errata/index.html` and add one `.erratum`
+entry per correction (date, location, description — a commented template is in the
+file), newest first.
+
+## Book examples page (`/examples`)
+
+Renders every book example from `examples/book-examples/manifest.json` at page load —
+no build step. Each example gets a copy button, a download link to its standalone
+file at `examples/book-examples/<dir>/<filename>`, and a stable anchor (the filename
+without extension). Per-chapter and all-examples ZIPs are generated client-side from
+the manifest, so they can never drift from the page.
+
+To add or update examples: regenerate or edit `examples/book-examples/`
+(`manifest.json` **and** the matching standalone file — the file must be the
+manifest `content` plus a trailing newline). No markup changes needed.
 
 ## Preview locally
 

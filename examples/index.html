@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Examples — Agentic Programming</title>
+  <meta name="description" content="Every code, prompt, pseudocode, and configuration example from Agentic Programming by Jerod W. Wilkerson — copyable and downloadable, organized by chapter.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main>
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow center">Agentic Programming</p>
+        <h1 class="page-title">Book Examples</h1>
+        <div class="container narrow examples-intro">
+          <p>Every code, prompt, pseudocode, and configuration example from the book, organized by chapter and preserved exactly as it appears in the text. Copy any example to your clipboard, download it as a file, or grab a whole chapter at once.</p>
+          <p class="center"><button type="button" class="btn btn-secondary" id="download-all">Download All Examples (.zip)</button></p>
+        </div>
+
+        <noscript>
+          <p class="center">This page needs JavaScript to render the examples. You can browse the raw files directly in the <a href="book-examples/index.md">examples listing</a>.</p>
+        </noscript>
+
+        <nav class="chapter-index" id="chapter-index" aria-label="Chapters"></nav>
+
+        <div id="examples-root">
+          <p class="center examples-loading" id="examples-loading">Loading examples&hellip;</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-nav"><a href="/">Home</a> &middot; <a href="/examples/">Book Examples</a> &middot; <a href="/errata/">Errata</a> &middot; <a href="/feedback/">Send Feedback</a></p>
+      <p>&copy; 2026 Jerod W. Wilkerson. All rights reserved.</p>
+      <p><a href="mailto:author@agenticprogrammingbook.com">author@agenticprogrammingbook.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ---------------------------------------------------------------
+    // Minimal ZIP writer (store method, no compression). Files are
+    // small text files, so stored ZIPs are fine and keep every byte
+    // identical to the standalone files under book-examples/.
+    // ---------------------------------------------------------------
+    var CRC_TABLE = (function () {
+      var t = new Uint32Array(256);
+      for (var n = 0; n < 256; n++) {
+        var c = n;
+        for (var k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+        t[n] = c >>> 0;
+      }
+      return t;
+    })();
+
+    function crc32(bytes) {
+      var c = 0xFFFFFFFF;
+      for (var i = 0; i < bytes.length; i++) {
+        c = CRC_TABLE[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+      }
+      return (c ^ 0xFFFFFFFF) >>> 0;
+    }
+
+    // files: [{ name: 'path/in/zip.txt', bytes: Uint8Array }]
+    function makeZip(files) {
+      var enc = new TextEncoder();
+      var now = new Date();
+      var dosTime = (now.getHours() << 11) | (now.getMinutes() << 5) | (now.getSeconds() >> 1);
+      var dosDate = ((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate();
+
+      var locals = [], centrals = [], offset = 0;
+
+      files.forEach(function (f) {
+        var nameB = enc.encode(f.name);
+        var crc = crc32(f.bytes);
+        var size = f.bytes.length;
+
+        var lh = new DataView(new ArrayBuffer(30));
+        lh.setUint32(0, 0x04034b50, true);
+        lh.setUint16(4, 20, true);        // version needed
+        lh.setUint16(6, 0x0800, true);    // UTF-8 names
+        lh.setUint16(8, 0, true);         // store
+        lh.setUint16(10, dosTime, true);
+        lh.setUint16(12, dosDate, true);
+        lh.setUint32(14, crc, true);
+        lh.setUint32(18, size, true);
+        lh.setUint32(22, size, true);
+        lh.setUint16(26, nameB.length, true);
+        lh.setUint16(28, 0, true);
+        locals.push(new Uint8Array(lh.buffer), nameB, f.bytes);
+
+        var ch = new DataView(new ArrayBuffer(46));
+        ch.setUint32(0, 0x02014b50, true);
+        ch.setUint16(4, 20, true);        // version made by
+        ch.setUint16(6, 20, true);        // version needed
+        ch.setUint16(8, 0x0800, true);
+        ch.setUint16(10, 0, true);
+        ch.setUint16(12, dosTime, true);
+        ch.setUint16(14, dosDate, true);
+        ch.setUint32(16, crc, true);
+        ch.setUint32(20, size, true);
+        ch.setUint32(24, size, true);
+        ch.setUint16(28, nameB.length, true);
+        // 30 extra len, 32 comment len, 34 disk, 36 int attrs = 0
+        // 38 ext attrs = 0
+        ch.setUint32(42, offset, true);
+        centrals.push(new Uint8Array(ch.buffer), nameB);
+
+        offset += 30 + nameB.length + size;
+      });
+
+      var cdSize = centrals.reduce(function (s, p) { return s + p.length; }, 0);
+      var eocd = new DataView(new ArrayBuffer(22));
+      eocd.setUint32(0, 0x06054b50, true);
+      eocd.setUint16(8, files.length, true);
+      eocd.setUint16(10, files.length, true);
+      eocd.setUint32(12, cdSize, true);
+      eocd.setUint32(16, offset, true);
+
+      return new Blob(locals.concat(centrals, [new Uint8Array(eocd.buffer)]), { type: 'application/zip' });
+    }
+
+    function saveBlob(blob, filename) {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+    }
+
+    // The standalone files are the manifest content plus a trailing
+    // newline; keep the ZIPs byte-identical to those files.
+    function fileBytes(entry) {
+      return new TextEncoder().encode(entry.content + '\n');
+    }
+
+    function flashLabel(btn, label) {
+      var original = btn.textContent;
+      btn.textContent = label;
+      btn.disabled = true;
+      setTimeout(function () { btn.textContent = original; btn.disabled = false; }, 1500);
+    }
+
+    function copyText(text, btn) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flashLabel(btn, 'Copied!'); },
+          function () { flashLabel(btn, 'Copy failed'); }
+        );
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        flashLabel(btn, ok ? 'Copied!' : 'Copy failed');
+      }
+    }
+
+    // ---------------------------------------------------------------
+    // Render from manifest.json — the single source of truth.
+    // ---------------------------------------------------------------
+    fetch('book-examples/manifest.json')
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(render)
+      .catch(function () {
+        document.getElementById('examples-loading').textContent =
+          'The examples could not be loaded. Please refresh, or email author@agenticprogrammingbook.com.';
+      });
+
+    function render(manifest) {
+      var entries = manifest.slice().sort(function (a, b) {
+        return (a.chapter_order - b.chapter_order) || (a.order - b.order);
+      });
+
+      // Group into chapters, preserving book order.
+      var chapters = [];
+      var byDir = {};
+      entries.forEach(function (e) {
+        if (!byDir[e.dir]) {
+          byDir[e.dir] = { dir: e.dir, name: e.chapter, entries: [] };
+          chapters.push(byDir[e.dir]);
+        }
+        byDir[e.dir].entries.push(e);
+      });
+
+      // Chapter index / jump links.
+      var index = document.getElementById('chapter-index');
+      chapters.forEach(function (ch) {
+        var a = document.createElement('a');
+        a.className = 'chip';
+        a.href = '#' + ch.dir;
+        a.textContent = ch.name;
+        index.appendChild(a);
+      });
+
+      var root = document.getElementById('examples-root');
+      root.textContent = '';
+
+      chapters.forEach(function (ch) {
+        var section = document.createElement('section');
+        section.className = 'chapter-block';
+        section.id = ch.dir;
+
+        var head = document.createElement('div');
+        head.className = 'chapter-head';
+
+        var h2 = document.createElement('h2');
+        h2.textContent = ch.name;
+        head.appendChild(h2);
+
+        var meta = document.createElement('div');
+        meta.className = 'chapter-meta';
+        var count = document.createElement('span');
+        count.className = 'chapter-count';
+        count.textContent = ch.entries.length + (ch.entries.length === 1 ? ' example' : ' examples');
+        meta.appendChild(count);
+
+        var zipBtn = document.createElement('button');
+        zipBtn.type = 'button';
+        zipBtn.className = 'btn btn-secondary btn-small';
+        zipBtn.textContent = 'Download Chapter (.zip)';
+        zipBtn.addEventListener('click', function () {
+          var blob = makeZip(ch.entries.map(function (e) {
+            return { name: e.filename, bytes: fileBytes(e) };
+          }));
+          saveBlob(blob, 'agentic-programming-examples-' + ch.dir + '.zip');
+        });
+        meta.appendChild(zipBtn);
+        head.appendChild(meta);
+        section.appendChild(head);
+
+        ch.entries.forEach(function (e) {
+          section.appendChild(renderExample(e));
+        });
+
+        root.appendChild(section);
+      });
+
+      document.getElementById('download-all').addEventListener('click', function () {
+        var blob = makeZip(entries.map(function (e) {
+          return { name: e.dir + '/' + e.filename, bytes: fileBytes(e) };
+        }));
+        saveBlob(blob, 'agentic-programming-examples.zip');
+      });
+
+      // Re-run the fragment scroll now that anchors exist.
+      if (location.hash) {
+        var target = document.getElementById(location.hash.slice(1));
+        if (target) target.scrollIntoView();
+      }
+    }
+
+    function renderExample(e) {
+      var id = e.filename.replace(/\.[^.]+$/, '');
+      var article = document.createElement('article');
+      article.className = 'example';
+      article.id = id;
+
+      var head = document.createElement('div');
+      head.className = 'example-head';
+
+      var titleWrap = document.createElement('div');
+      titleWrap.className = 'example-title';
+
+      var anchor = document.createElement('a');
+      anchor.className = 'example-anchor';
+      anchor.href = '#' + id;
+      anchor.title = 'Link to this example';
+      anchor.setAttribute('aria-label', 'Link to ' + e.title);
+      anchor.textContent = '#';
+      titleWrap.appendChild(anchor);
+
+      var h3 = document.createElement('h3');
+      h3.textContent = e.title;
+      titleWrap.appendChild(h3);
+
+      var tag = document.createElement('span');
+      tag.className = 'type-tag type-' + e.type;
+      tag.textContent = e.type;
+      titleWrap.appendChild(tag);
+      head.appendChild(titleWrap);
+
+      var actions = document.createElement('div');
+      actions.className = 'example-actions';
+
+      var copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'btn btn-secondary btn-small';
+      copyBtn.textContent = 'Copy';
+      copyBtn.addEventListener('click', function () { copyText(e.content, copyBtn); });
+      actions.appendChild(copyBtn);
+
+      var dl = document.createElement('a');
+      dl.className = 'btn btn-secondary btn-small';
+      dl.href = 'book-examples/' + e.dir + '/' + e.filename;
+      dl.setAttribute('download', e.filename);
+      dl.textContent = 'Download';
+      actions.appendChild(dl);
+      head.appendChild(actions);
+
+      article.appendChild(head);
+
+      if (e.description) {
+        var desc = document.createElement('p');
+        desc.className = 'example-desc';
+        desc.textContent = e.description;
+        article.appendChild(desc);
+      }
+
+      var pre = document.createElement('pre');
+      pre.className = 'example-code';
+      var code = document.createElement('code');
+      code.textContent = e.content;   // verbatim, exactly as in the book
+      pre.appendChild(code);
+      article.appendChild(pre);
+
+      return article;
+    }
+  })();
+  </script>
+</body>
+</html>

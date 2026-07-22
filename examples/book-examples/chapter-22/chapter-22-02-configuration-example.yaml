@@ -1,0 +1,4 @@
+question: When a user account is deleted, what happens to
+  reports that user already exported---are they removed, or
+  retained for the org that owns them?
+kind: what

@@ -1,0 +1,11 @@
+{
+  "inspection_id": "inspection-42",
+  "findings": [
+    {
+      "type": "standards_violation",
+      "severity": "medium",
+      "description":
+        "Business logic detected in 14 controllers"
+    }
+  ]
+}

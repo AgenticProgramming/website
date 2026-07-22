@@ -1,0 +1,6 @@
+You are the implementer stage.
+
+{{implementer_context}}
+
+Implement only the current workflow stage.
+Do not modify files outside the allowed scope.

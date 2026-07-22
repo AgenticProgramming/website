@@ -1,0 +1,11 @@
+{
+  "status": "resolved",
+  "stories": [
+    "story-184",
+    "story-186"
+  ],
+  "resolution_summary":
+    "Merged webhook validation logic
+     into the billing-service abstraction
+     introduced by story-184"
+}

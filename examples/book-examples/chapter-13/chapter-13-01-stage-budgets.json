@@ -1,0 +1,28 @@
+{
+  "stages": [
+    {
+      "name": "implementer",
+      "prompt": "implementer.md",
+      "input": "story-plan.md",
+      "output": "implementation.diff"
+    },
+    {
+      "name": "tester",
+      "prompt": "tester.md",
+      "input": "implementation.diff",
+      "output": "test-results.json"
+    },
+    {
+      "name": "verifier",
+      "prompt": "verifier.md",
+      "input": [
+        "implementation.diff",
+        "test-results.json"
+      ],
+      "on_failure": {
+        "retry_stage": "implementer",
+        "max_retries": 2
+      }
+    }
+  ]
+}

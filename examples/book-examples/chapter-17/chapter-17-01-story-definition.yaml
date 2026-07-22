@@ -1,0 +1,20 @@
+story:
+  title: Add Subscription Cancellation Support
+
+  description:
+    Add support for authenticated subscription cancellation
+    while preserving billing history and existing webhook
+    behavior. Existing payment-processing flows should remain
+    unchanged, and the implementation should remain isolated
+    from unrelated subsystems.
+
+  tasks:
+    - implement cancellation endpoint
+    - update subscription state model
+    - preserve billing history on cancellation
+    - generate cancellation tests
+
+  acceptance_criteria:
+    - authenticated users can cancel active subscriptions
+    - cancellation endpoint returns HTTP 200 on success
+    - cancelled subscriptions no longer appear as active

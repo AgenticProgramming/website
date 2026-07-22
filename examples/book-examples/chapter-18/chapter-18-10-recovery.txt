@@ -1,0 +1,17 @@
+LOAD workflow_state
+
+IF workflow_state.status == "escalated" THEN
+    RESTORE execution artifacts
+    SET current_stage = workflow_state.current_stage
+ELSE IF workflow_state.status == "running" THEN
+    RESTORE execution artifacts
+    SET current_stage = workflow_state.current_stage
+ELSE
+    INITIALIZE new workflow execution
+END IF
+
+...
+
+WHILE workflow execution is active
+    ...
+END WHILE

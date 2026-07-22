@@ -1,0 +1,4 @@
+Implement only the current workflow stage.
+Do not rewrite surrounding architecture.
+Run local tests before completing the stage.
+Record all modified files in the workflow artifacts.

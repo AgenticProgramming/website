@@ -1,0 +1,8 @@
+answer: Retain the exported reports. They belong to the
+  organization, not the individual account; the objective
+  treats reports as org-owned records, and the constraints
+  require deletion to remove personal data without destroying
+  org history.
+source: product specification (objective; data-retention
+  constraint)
+confidence: high

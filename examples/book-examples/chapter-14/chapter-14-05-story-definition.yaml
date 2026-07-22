@@ -1,0 +1,34 @@
+story:
+  id: story-184
+  title: Prevent Duplicate Charges During Webhook Retries
+
+  description: |
+    Stripe may redeliver webhook events multiple times during
+    transient failures or network retries. The billing subsystem
+    must process repeated delivery safely without creating
+    duplicate customer charges or inconsistent payment state.
+
+    This story adds retry-safe payment processing while
+    preserving existing billing and checkout behavior.
+
+tasks:
+  - prevent_duplicate_charge_processing
+  - preserve_payment_idempotency
+  - validate_webhook_retry_behavior
+  - verify_charge_state_consistency
+
+scope:
+  modify:
+    - src/billing/payment_processor.ts
+    - src/billing/payment_webhook_handler.ts
+    - tests/billing/payment_retry_handling.test.ts
+
+  do_not_modify:
+    - infrastructure/
+    - deployment/
+    - analytics/
+
+acceptance_criteria:
+  - duplicate webhook deliveries do not create duplicate customer charges
+  - payment processing remains idempotent during webhook retries
+  - repeated payment events preserve consistent charge state

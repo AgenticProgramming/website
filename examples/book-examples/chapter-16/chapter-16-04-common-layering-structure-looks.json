@@ -1,0 +1,14 @@
+[Harness Layer]
+Defines durable behavioral rules shared across workflows.
+
+[Role Layer]
+Defines planner, implementer, or verifier authority.
+
+[Workflow Layer]
+Defines workflow-specific execution rules.
+
+[Stage Layer]
+Defines the objective of the current execution stage.
+
+[Runtime State Layer]
+Where the coordinator injects the current workflow state.

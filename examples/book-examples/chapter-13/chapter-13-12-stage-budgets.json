@@ -1,0 +1,20 @@
+{
+  "stages": [
+    {
+      "name": "implementer",
+      "prompt": "implementer.md"
+    },
+    {
+      "name": "tester",
+      "prompt": "tester.md"
+    },
+    {
+      "name": "verifier",
+      "prompt": "verifier.md"
+    }
+  ],
+  "on_failure": {
+    "retry_stage": "implementer",
+    "max_retries": 2
+  }
+}

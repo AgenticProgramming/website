@@ -1,0 +1,25 @@
+LOAD workflow definition
+LOAD workflow state
+
+CREATE git worktree
+CHECKOUT workflow branch
+
+WHILE workflow is not complete
+    SELECT next stage
+
+    LOAD stage prompt
+    LOAD workflow artifacts
+    LOAD prior stage outputs
+
+    ASSEMBLE execution context
+    INVOKE stage agent
+
+    SAVE artifacts
+    UPDATE workflow state
+
+    IF result failed
+        HANDLE retry or failure policy
+    ELSE
+        ADVANCE workflow
+    END IF
+END WHILE

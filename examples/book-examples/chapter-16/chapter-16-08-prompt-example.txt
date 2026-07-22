@@ -1,0 +1,29 @@
+Evaluate implementation behavior against the acceptance criteria
+below.
+
+Requirements:
+- every failure claim must reference observable evidence,
+- distinguish between confirmed failures and uncertainty,
+- identify missing evidence explicitly,
+- reject speculative reasoning.
+
+Produce verification-result.json and retry-guidance.json, each
+conforming to the schema injected below.
+
+Acceptance criteria:
+{{acceptance_criteria}}
+
+Test results:
+{{test_results}}
+
+Runtime logs:
+{{runtime_logs}}
+
+Implementation summary:
+{{implementation_summary}}
+
+verification-result.json schema:
+{{verification_result_schema}}
+
+retry-guidance.json schema:
+{{retry_guidance_schema}}

@@ -1,0 +1,32 @@
+story_workflow:
+  stages:
+    - planning
+    - implementation
+    - testing
+    - verification
+    - documentation
+    - pull_request
+
+  retry_routes:
+    testing_failure:
+      reroute_to: testing
+    verification_failure:
+      reroute_to: implementation
+
+  artifact_routes:
+    implementation:
+      inputs:
+        - story-plan.yaml
+      outputs:
+        - implementation.patch
+    testing:
+      inputs:
+        - implementation.patch
+      outputs:
+        - test-results.json
+
+  escalation_rules:
+    max_retries_exceeded:
+      action: escalate
+    ambiguous_requirements:
+      action: escalate

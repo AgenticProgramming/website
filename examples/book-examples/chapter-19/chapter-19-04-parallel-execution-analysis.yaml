@@ -1,0 +1,9 @@
+parallel_execution_analysis:
+  safe_parallel_groups:
+    - story-184
+    - story-185
+  defer:
+    - story-186
+  reason:
+    story-184 and story-186 both modify
+    payment-processing services

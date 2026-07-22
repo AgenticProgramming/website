@@ -1,0 +1,51 @@
+Build the orchestration layer in orchestration/, plus entry-point
+scripts and unit tests.
+
+The Story Coordinator is deterministic: no model calls, every
+decision a rule applied to a recorded fact. It loads the story
+artifact from .harness/stories/ (refuse to run without one),
+creates or resumes a run directory under .harness/runs/<story-id>/
+(resume a run whose state.json says running; refuse to rerun one
+whose status says it already ended, completed or escalated, because
+the run directory holds evidence), checks out a story/<story-id>
+branch, and
+loops through the workflow stages. Each stage: save state.json,
+append a timestamped line to events.log, assemble the stage
+context, render it into the prompt template, save the rendered
+prompt as prompt-<stage>-attempt-N.md, invoke the agent, then
+escalate if the agent process failed or a required output artifact
+is missing, and escalate if the stage's changed-files record
+touches a blocked path.
+
+Route from the verifier's artifact and nothing else: archive each
+verdict as verification/iteration-N.json; passed advances; failed
+with retry_recommended true and retries remaining increments the
+retry count and reroutes to the stage named in the workflow's
+on_failure; failed past the ceiling, or failed with
+retry_recommended false, escalates immediately. Escalation writes
+escalation-summary.md and exits 2. Completion writes
+completion-report.md, commits the story branch, and exits 0.
+
+Context assembly is injection: build each stage's context (story,
+acceptance criteria, standards, architecture documents, blocked
+paths, test command, prior stage artifacts, latest verifier
+finding, retry guidance, retry state) and substitute it into the
+{{placeholders}}; anything with no content renders as None. The
+agent runner is the only module that talks to a model: claude -p
+with the configured permission mode, model, and allowed tools,
+--output-format stream-json --verbose, prompt on stdin, raw stream
+appended to the story's log, final result returned. Take the
+runner as a parameter so tests can inject a fake.
+
+Scripts stay thin: l5-run <story-id> finds the target repository
+by walking up to the nearest .harness/config.yaml and hands off,
+erroring out with a message pointing at l5-init if no config is
+found; l5-plan and l5-assist start interactive claude sessions with
+their templates passed via --append-system-prompt.
+
+Write unit tests using a fake runner that plays back scripted
+stage artifacts: happy path, verification failure that retries
+then passes, retries exhausted, blocked-path violation, missing
+artifact, refusal to rerun an ended story, and rendering the real
+templates without leftover placeholders. No test invokes a model.
+Commit when done.

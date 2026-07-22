@@ -1,0 +1,3 @@
+The artifact does not follow the story artifact format your
+instructions prescribe... Rewrite to conform exactly, keeping the
+same content.

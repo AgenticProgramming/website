@@ -1,0 +1,10 @@
+{
+  "tests_written": 42,
+  "tests_run": 42,
+  "tests_passed": 40,
+  "tests_failed": 2,
+  "failed_tests": [
+    "expired_token_returns_401",
+    "missing_token_returns_401"
+  ]
+}

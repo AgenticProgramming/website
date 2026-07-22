@@ -1,0 +1,13 @@
+{
+  "workflow_limits": {
+    "max_retries": 5
+  },
+  "stage_limits": {
+    "implementer": {
+      "max_retries": 2
+    },
+    "verifier": {
+      "max_retries": 1
+    }
+  }
+}

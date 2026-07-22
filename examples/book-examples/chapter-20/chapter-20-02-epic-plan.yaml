@@ -1,0 +1,76 @@
+epic: Subscription Billing
+
+summary:
+  Add recurring subscription billing
+  to the platform.
+
+architecture_decisions:
+  - Stripe will be used as the initial payment provider.
+  - Subscription state will be stored locally.
+
+stories:
+  story-184:
+    title:
+      Billing Model
+    objective:
+      Create the subscription domain model,
+      persistence structure, and lifecycle states
+      required by the billing system.
+    scope:
+      modify:
+        - billing-domain
+        - subscription-persistence
+      do_not_modify:
+        - checkout-flow
+        - reporting
+    acceptance_criteria:
+      - subscription records persist correctly
+      - lifecycle state transitions are supported
+      - existing billing behavior remains unchanged
+  story-185:
+    title:
+      Checkout Flow
+    # Additional story details omitted for brevity
+  story-186:
+    title:
+      Webhook Processing
+    # Additional story details omitted for brevity
+  story-187:
+    title:
+      Subscription Persistence
+    # Additional story details omitted for brevity
+  story-188:
+    title:
+      Administration UI
+    # Additional story details omitted for brevity
+  story-189:
+    title:
+      Reporting
+    # Additional story details omitted for brevity
+
+dependencies:
+  story-186:
+    depends_on:
+      - story-184
+  story-187:
+    depends_on:
+      - story-184
+  story-188:
+    depends_on:
+      - story-187
+
+execution_tiers:
+  tier_1:
+    - story-184
+    - story-185
+    - story-189
+  tier_2:
+    - story-186
+    - story-187
+  tier_3:
+    - story-188
+
+epic_level_objectives:
+  - validate end-to-end billing flow
+  - verify reporting integration
+  - coordinate production rollout

@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "violation": "Invoice history no longer accessible after cancellation",
+  "retry_recommended": false
+}

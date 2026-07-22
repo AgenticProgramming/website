@@ -1,0 +1,20 @@
+{
+  "retry_iteration": 3,
+  "previous_failures": [
+    "Integration test timeout",
+    "Cache invalidation missing"
+  ],
+  "current_focus": [
+    "Fix cache invalidation only"
+  ],
+  "preserve_behavior": [
+    "Existing billing integration tests passing",
+    "Invoice history remains accessible"
+  ],
+  "retry_scope": [
+    "billing_service.ts"
+  ],
+  "verifier_feedback": [
+    "Subscription state not updated after cancellation"
+  ]
+}

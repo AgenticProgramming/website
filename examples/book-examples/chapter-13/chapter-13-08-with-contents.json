@@ -1,0 +1,17 @@
+{
+  "workflow_id": "story-workflow",
+  "execution_id": "story-184",
+  "stage": "implementer",
+  "branch": "story/story-184",
+  "objective": "Implement only the current workflow stage requirements.",
+  "constraints": [
+    "preserve repository conventions",
+    "avoid unrelated refactors",
+    "run local verification before completion"
+  ],
+  "available_artifacts": [
+    "story-plan.md",
+    "verification-result.json",
+    "repository-summary.md"
+  ]
+}

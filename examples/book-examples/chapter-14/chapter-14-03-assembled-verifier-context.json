@@ -1,0 +1,14 @@
+{
+  "workflow_id": "story-workflow",
+  "execution_id": "story-184",
+  "stage": "verifier",
+  "available_artifacts": [
+    ".harness/runs/story-184/changed-files.json",
+    ".harness/runs/story-184/test-results.json",
+    ".harness/runs/story-184/implementation-summary.md"
+  ],
+  "acceptance_criteria": [
+    "duplicate webhook deliveries do not create duplicate customer charges",
+    "payment processing remains idempotent during retries"
+  ]
+}
