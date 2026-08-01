@@ -79,6 +79,39 @@ One-time setup (in your Google account):
 If you later edit the script, use **Deploy → Manage deployments → Edit →
 New version** so the same `/exec` URL keeps working.
 
+### Email notification on each submission
+
+The script emails `author@agenticprogrammingbook.com` on every submission
+(`MailApp.sendEmail`, wrapped in try/catch so a mail failure never loses the
+row). Two non-obvious things are required for this to actually reach your inbox:
+
+1. **Declare the mail scope in the manifest.** In **Project Settings**, enable
+   *Show "appsscript.json" manifest file in editor*, then add an `oauthScopes`
+   array:
+
+   ```json
+   "oauthScopes": [
+     "https://www.googleapis.com/auth/script.send_mail",
+     "https://www.googleapis.com/auth/spreadsheets.currentonly"
+   ]
+   ```
+
+   Without this, Apps Script never prompts for the mail permission, so
+   `MailApp.sendEmail` throws "no permission" at runtime — and the try/catch
+   swallows it silently (nothing sends, no visible error). After adding the
+   scopes, Run `doPost` once from the editor and complete the authorization
+   prompt (Advanced → Go to project → Allow), then redeploy a new version.
+
+2. **Add a Gmail filter so the notification reaches your Inbox.** Because the
+   mail is sent from your own Google account to `author@…` (which forwards back
+   to that same Gmail), Gmail dedups it out of the Inbox and auto-marks it read.
+   Create a filter — matches `to:author@agenticprogrammingbook.com` +
+   subject `New book feedback`; actions: star, apply label **Book Feedback**,
+   mark important, never send to spam — to surface new feedback. (Self-sent mail
+   is auto-read, so it won't appear in Priority Inbox's "important and unread"
+   section; a Multiple Inboxes panel on the *Book Feedback* label keeps it
+   visible at the top.)
+
 ## Errata page (`/errata`)
 
 Static page. While the book is pre-release it shows a notice; once the book is in
