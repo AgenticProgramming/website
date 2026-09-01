@@ -12,6 +12,7 @@ Static site (plain HTML/CSS, no build step) hosted on GitHub Pages with a custom
 - `styles.css` — styles
 - `feedback/` — reader-feedback form (see below)
 - `errata/` — errata page (pre-release notice now; post-print corrections later)
+- `whats-new/` — unlisted release-notes page (see below)
 - `examples/` — book examples page, rendered from `examples/book-examples/manifest.json`
 - `favicon.svg` — favicon (AI Fluency Ladder motif)
 - `CNAME` — custom domain for GitHub Pages (`agenticprogrammingbook.com`)
@@ -118,6 +119,28 @@ Static page. While the book is pre-release it shows a notice; once the book is i
 print, unhide the `#errata-list` div in `errata/index.html` and add one `.erratum`
 entry per correction (date, location, description — a commented template is in the
 file), newest first.
+
+## What's New page (`/whats-new`)
+
+Unlisted release-notes page for readers who are mid-book when a large Leanpub
+update lands. It answers one question: *what do I have to go back and read?*
+Three tiers — new sections, sections whose conclusions moved, everything else.
+
+**It is deliberately unlisted.** It is not in the site nav, the footer nav on
+other pages, or the home page, and it carries
+`<meta name="robots" content="noindex, nofollow">`. It is reached only from the
+Leanpub release email. (Unlisted is not private — anyone with the link can read
+it, and links get forwarded.)
+
+To add the next release: copy the `<section class="release">` block, put the new
+one **above** the existing one, and change the older one's wrapper to
+`<details class="release release-past">` with the `<h2 class="release-date">`
+becoming `<summary class="release-date">`. It then collapses. A comment in the
+file spells this out. Older releases stay on the page rather than being deleted.
+
+Styles live in the `/* What's New */` block at the end of `styles.css`. Prose
+runs at the narrow width inside the wide container; the Tier 1/2 tables use the
+full width and stack into labeled blocks below 700px.
 
 ## Book examples page (`/examples`)
 

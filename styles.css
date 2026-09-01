@@ -427,3 +427,138 @@ a:focus-visible, .btn:focus-visible {
   .hero { padding: 72px 0 56px; }
   .section { padding: 56px 0; }
 }
+
+/* What's New (/whats-new) — unlisted release-notes page */
+
+/* Prose runs narrow inside the wide container; the change tables use the full width. */
+.prose {
+  max-width: var(--maxw-narrow);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.standfirst {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.release { margin-top: 56px; }
+
+.release-date {
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  margin: 0 0 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.release-tag {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+/* Older releases collapse: <details class="release release-past"> */
+.release-past > summary { cursor: pointer; list-style: none; }
+.release-past > summary::-webkit-details-marker { display: none; }
+.release-past > summary::before {
+  content: "\25B8";
+  display: inline-block;
+  margin-right: 12px;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+.release-past[open] > summary::before { transform: rotate(90deg); }
+.release-past > summary:hover { color: var(--accent-hover); }
+
+.tier { margin-top: 48px; }
+
+.tier-title {
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  margin: 0 0 6px;
+  color: var(--text);
+}
+
+.tier-note {
+  color: var(--muted);
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+/* "The short version" heads prose rather than a table, so it needs the gap. */
+.prose > .tier-title { margin-bottom: 14px; }
+
+/* Change tables (Tier 1 / Tier 2) */
+.changes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.changes th {
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--border);
+}
+.changes th:first-child { padding-right: 32px; }
+
+.changes td {
+  border-top: 1px solid var(--border);
+  padding: 18px 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+  vertical-align: top;
+}
+.changes td:first-child {
+  width: 30%;
+  padding-right: 32px;
+  color: var(--text);
+}
+.changes td strong { color: var(--text); }
+
+.close-note {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.close-note p { color: var(--muted); margin: 0 0 18px; }
+
+.close-note .closing-line {
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.signature { font-style: italic; }
+
+/* Stack each row into a labeled block rather than squeezing two columns. */
+@media (max-width: 700px) {
+  .changes thead { display: none; }
+  .changes,
+  .changes tbody,
+  .changes tr,
+  .changes td { display: block; width: 100%; }
+
+  .changes tr {
+    border-top: 1px solid var(--border);
+    padding: 18px 0;
+  }
+  .changes td { border-top: 0; padding: 0; }
+  .changes td:first-child {
+    width: auto;
+    padding: 0 0 8px;
+    font-size: 1rem;
+  }
+}

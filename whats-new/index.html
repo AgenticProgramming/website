@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What&rsquo;s New Since Your Copy &mdash; Agentic Programming</title>
+  <meta name="description" content="What changed in Agentic Programming since your copy, sorted by how much of it you need to go back and read.">
+
+  <!-- Unlisted page: reached only from the release email. Keep it out of search. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="prose">
+          <p class="eyebrow center">Agentic Programming</p>
+          <h1 class="page-title">What&rsquo;s New Since Your Copy</h1>
+
+          <p class="standfirst">If you have been reading <em>Agentic Programming</em> over the past month, the August 31 update is a large one &mdash; about 17,000 new words &mdash; and this page tells you exactly which parts of it you have not read.</p>
+
+          <p>It exists because most of you are close to finishing, and a big update at that moment is more unsettling than helpful without a map. So here is the map. It will not be linked from anywhere on the site. It is for the people who were already reading.</p>
+        </div>
+
+        <!-- ===================================================================
+             RELEASE SECTIONS, NEWEST FIRST.
+
+             To add the next release: copy the <section class="release"> block
+             below, put the new one ABOVE the existing one, and wrap each older
+             release in <details class="release release-past"> so it collapses:
+
+               <details class="release release-past">
+                 <summary class="release-date">August 31, 2026 <span class="release-tag">17,000 new words, mostly Part 3</span></summary>
+                 ...the tiers for that release...
+               </details>
+
+             Nothing else needs to change. Older releases stay on the page.
+             ================================================================ -->
+
+        <section class="release" aria-labelledby="rel-2026-08-31">
+          <h2 class="release-date" id="rel-2026-08-31">August 31, 2026 <span class="release-tag">17,000 new words, mostly Part&nbsp;3</span></h2>
+
+          <div class="prose">
+            <h3 class="tier-title">The short version</h3>
+
+            <p>Almost all of it is in Part 3, chapters 12 through 19, the hands-on architecture chapters. A few changes carry into Part 4.</p>
+
+            <p>If you have read Parts 1 or 2, nothing you read there has changed in substance. A few sentences were sharpened and the Preface now credits the five-level framework more precisely, and that is all.</p>
+
+            <p>If you have read Part 3, there are about a dozen sections that did not exist in your copy and roughly the same number whose conclusions moved. That is an evening, not a re-read.</p>
+
+            <p>If you have read Part 4, two things reach you: a new section in Chapter 21 on what removing the approval gate takes with it, and the documenter-before-verifier reordering in Chapters 20 and 22, with the figures updated to match. Both are listed below.</p>
+
+            <p>Two things drove the update. I built much of the level-three harness Appendix A describes, following the book&rsquo;s own instructions, and I audited the level-four harness I have been running real work through against everything the manuscript claims. Both passes found places where the book was thin, or wrong, or silent.</p>
+          </div>
+
+          <div class="tier">
+            <h3 class="tier-title">Tier 1 &mdash; New sections</h3>
+            <p class="tier-note">These were not in your copy at all.</p>
+
+            <table class="changes">
+              <thead>
+                <tr><th scope="col">Where</th><th scope="col">What it says</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Ch.&nbsp;15</strong>, &ldquo;When Evidence Contradicts the Verdict&rdquo;</td>
+                  <td>What a coordinator should do when an agent&rsquo;s judgment disagrees with the mechanical evidence, when it may override the agent, and what a wrong override costs in each direction.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;15</strong>, &ldquo;What a Passing Result Establishes&rdquo;</td>
+                  <td>A passing suite is not evidence if the passing run was narrow. What a green result actually licenses you to conclude, and the rule that keeps a retry from quietly narrowing the check it is retrying against.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;16</strong>, &ldquo;Injected Content Is Untrusted&rdquo;</td>
+                  <td>Every artifact a harness injects &mdash; a story description, an issue comment, a diff, a prior agent&rsquo;s report &mdash; was written by a person or an agent, and an agent cannot reliably separate prose that describes work from prose that directs it. What actually constrains a steered agent, and why the warning in the prompt is not it.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;17</strong>, &ldquo;Retry Routing and Convergence&rdquo;</td>
+                  <td>Split out of the old &ldquo;Retry Management and Workflow Convergence&rdquo; and substantially rewritten. A retry goes to the stage that owns the defect &mdash; a validation defect goes back to the tester, not the implementer &mdash; with the defect categories, the routing table, and what happens to a stage that routes work to itself.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;18</strong>, &ldquo;Adjudicator Agents&rdquo;</td>
+                  <td>Now four subsections. Adjudication is appeal-driven; what an appeal may contest (a judgment call, never a fact like a non-zero exit code); what the adjudicator is allowed to read; and where its outcomes route.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;18</strong>, &ldquo;Inspector Agents&rdquo;</td>
+                  <td>Now three subsections. What a finding has to carry to be actionable, when an inspection runs so it does not contend with execution, and what happens to a finding after it is filed.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;18</strong>, &ldquo;Reading a Run That Passed&rdquo;</td>
+                  <td>Entirely new. A failed run announces itself; a run that succeeded on thin evidence does not. What to look for in a green run.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;18</strong>, &ldquo;Restartability and Resilience&rdquo;</td>
+                  <td>Now three subsections: when a run escalates, what a resume keeps versus what it resets (including the retry counters and the accumulated cost), and recovery in practice.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;19</strong>, &ldquo;Iteration Strategy&rdquo;</td>
+                  <td>New material on backlog grooming &mdash; an agent proposing an execution order over a backlog that an inspector keeps filling &mdash; and on a harness history that survives the deletion of the runs that produced it, feeding the next run&rsquo;s estimates rather than only a later investigation.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;21</strong>, &ldquo;Execution Without a Human in the Loop&rdquo;</td>
+                  <td>New material on what removing the approval gate takes with it. The developer&rsquo;s approval was what serialized the write; without it, grooming needs its own concurrency defenses, and there is a limit to what any of them can see.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tier">
+            <h3 class="tier-title">Tier 2 &mdash; Conclusions that moved</h3>
+            <p class="tier-note">Sections you have read whose conclusions changed. Worth re-reading.</p>
+
+            <table class="changes">
+              <thead>
+                <tr><th scope="col">Where</th><th scope="col">What changed</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Ch.&nbsp;13</strong>, &ldquo;The Harness Project&rdquo; and &ldquo;The Target Repository&rdquo;</td>
+                  <td>Canonical artifact filenames throughout, retry guidance as its own artifact, and a precise definition of what &ldquo;durable&rdquo; promises &mdash; which is less than it sounds like.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;13</strong>, &ldquo;Cost and Execution Constraints&rdquo;</td>
+                  <td>Where a stage budget&rsquo;s number actually comes from, why a ceiling recorded as a bare integer cannot be revised safely, and the principle that keeps a first ceiling from doing harm.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;13</strong>, &ldquo;Logging and Visibility&rdquo;</td>
+                  <td>Run history as an append-only event log plus an execution record, so deleting a run removes its artifacts without erasing the fact that it happened.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;14</strong>, &ldquo;Planner Agents&rdquo;</td>
+                  <td>A plan is now checked against the workflow&rsquo;s rules, not only its schema &mdash; and the defect a planner most often produces is neither: a plan that is well-formed, executable, and covers six of the story&rsquo;s seven requirements.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;14</strong>, &ldquo;Tester Agents&rdquo;</td>
+                  <td>The tester writes validation and does not run it. The coordinator runs the configured command and records the result, because a stage that runs its own suite also reports its own result.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;14</strong>, &ldquo;Documenter Agents&rdquo;</td>
+                  <td><strong>The documenter now runs before the verifier</strong>, reversing the order in your copy. Documentation that lands after the last check is documentation nothing judges &mdash; and it is not inert, because future planners and implementers read it. Also new: a documenter may not assert what nothing in the run can check.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;14</strong>, &ldquo;How Agents Work Together&rdquo;</td>
+                  <td>A new table of each agent&rsquo;s authority boundary, and the point that a boundary living only in a prompt is one the harness cannot see broken.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;17</strong>, &ldquo;Retry Management&rdquo;</td>
+                  <td>What a retry starts from, what it carries forward, and the attempts archive that keeps earlier attempts from being overwritten.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;17</strong>, &ldquo;Human Review and Escalation&rdquo; and &ldquo;Operational Boundaries&rdquo;</td>
+                  <td>Escalations are categorized, live counters are distinguished from records, and a story branch&rsquo;s base is checked before work begins.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;19</strong>, &ldquo;Parallelization&rdquo;</td>
+                  <td>The environment lock is acquired atomically before execution and released explicitly, including on the paths that are not the success path.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;20</strong> and <strong>Ch.&nbsp;22</strong></td>
+                  <td>The same documenter-before-verifier reordering at the epic and product tiers, with the figures updated to match.</td>
+                </tr>
+                <tr>
+                  <td><strong>Appendix&nbsp;A</strong></td>
+                  <td>Two new footnotes marking where the build diverges from what the chapters now teach, and a closing section stating plainly that the influence between the book and its companion repository ran in both directions &mdash; including the run that reversed the documenter ordering.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tier">
+            <div class="prose">
+              <h3 class="tier-title">Tier 3 &mdash; Everything else</h3>
+              <p class="tier-note">No action needed.</p>
+
+              <p>The rest is polish and reference material: two more recurring principles on the Principles page (eleven now), a substantially expanded glossary covering the epic and product agent rosters, new index entries, a new Acknowledgments page, and sharper wording in a number of places that does not change what any of it means.</p>
+
+              <p>The book also went to a professional copyeditor today, the same day this update shipped. That pass will change wording across every chapter and is not expected to change substance anywhere. When it lands, this page will say so.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="prose close-note">
+          <p>If something on this page is unclear, or you find something that changed and is not listed here, the feedback form is at <a href="/feedback/">agenticprogrammingbook.com/feedback</a>. Reader feedback has shaped this whole final stretch.</p>
+          <p class="center"><a class="btn btn-primary" href="/feedback/">Send Feedback</a></p>
+          <p class="closing-line">Thanks for reading early.</p>
+          <p class="signature">&mdash; Jerod</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-nav"><a href="/">Home</a> &middot; <a href="/examples/">Book Examples</a> &middot; <a href="https://github.com/jerodw/level-five" target="_blank" rel="noopener noreferrer">Companion Code</a> &middot; <a href="/errata/">Errata</a> &middot; <a href="/feedback/">Send Feedback</a></p>
+      <p>&copy; 2026 Jerod W. Wilkerson. All rights reserved.</p>
+      <p><a href="mailto:author@agenticprogrammingbook.com">author@agenticprogrammingbook.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
