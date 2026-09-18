@@ -119,11 +119,10 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 .hero-cover {
   flex: 0 0 auto;
-  width: 240px;
+  width: 280px;
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  /* 3D render on a transparent background; the shadow is baked into the image. */
 }
 .hero-copy { max-width: 560px; }
 .hero-copy .tagline,
@@ -132,7 +131,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 @media (max-width: 820px) {
   .hero-grid { flex-direction: column; text-align: center; gap: 36px; }
-  .hero-cover { width: 200px; }
+  .hero-cover { width: 230px; }
   .hero-copy .tagline,
   .hero-copy .subtitle { margin-left: auto; margin-right: auto; }
   .hero-copy .cta-row { justify-content: center; }
