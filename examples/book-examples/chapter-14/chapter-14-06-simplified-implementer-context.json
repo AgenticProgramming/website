@@ -1,6 +1,6 @@
 {
   "workflow_id": "story-workflow",
-  "execution_id": "story-184",
+  "execution_id": "story-152",
   "stage": "implementer",
   "objective": "Prevent duplicate payment processing during repeated Stripe webhook delivery",
   "constraints": [

@@ -4,6 +4,11 @@
     {
       "type": "standards_violation",
       "severity": "medium",
+      "confidence": "high",
+      "paths": [
+        "api/controllers/billing.py:88-140",
+        "api/controllers/accounts.py:51-96"
+      ],
       "description":
         "Business logic detected in 14 controllers"
     }

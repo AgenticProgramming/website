@@ -1,20 +1,19 @@
 story-workflow
   implementation
   testing
-  verification
   documentation
+  verification
   pull_request
 
 bugfix-workflow
   implementation
   testing
-  verification
   documentation
+  verification
   pull_request
 
-maintenance-workflow
+refactor-workflow
   implementation
-  testing
-  verification
   documentation
+  verification
   pull_request

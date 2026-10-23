@@ -5,8 +5,8 @@ epic_workflow:
     - integration
     - epic_implementation
     - epic_testing
-    - epic_verification
     - epic_documentation
+    - epic_verification
 
   retry_routes:
     story_workflow_failure:

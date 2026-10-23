@@ -1,1 +1,0 @@
-Add JWT authentication to the API. 

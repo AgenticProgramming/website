@@ -1,0 +1,16 @@
+"on_failure": {
+  "retry_routing": {
+    "implementation": {
+      "stage": "implementer",
+      "when": "the defect is in the code under test"
+    },
+    "validation": {
+      "stage": "tester",
+      "when": "the defect is in the tests themselves"
+    },
+    "documentation": {
+      "stage": "documenter",
+      "when": "the defect is in the documentation the story produced"
+    }
+  }
+}

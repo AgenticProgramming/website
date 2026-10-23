@@ -16,13 +16,15 @@ the website "Examples" page renders from (see `../website-agent-prompt.md`).
 `description` (the sentence that introduces the example in the book), `filename`,
 `dir`, `content` (verbatim), and `source_line` (line in the source markdown).
 
-## What's included (156 examples)
+## What's included (155 examples)
 
-Types: `json` (64), `prompt` (46), `yaml` (24), `pseudocode` (7), `shell` (7),
+Types: `json` (63), `prompt` (46), `yaml` (24), `pseudocode` (7), `shell` (7),
 `config` (4), `code` (4). (`config` = the Chapter 17 workflow-composition sketches:
 stage-name outlines that show how workflows compose, rather than valid YAML/JSON.)
+The Chapter 17 retry routing table is a JSON fragment (an `"on_failure"` member), as
+it appears in the book.
 
-## What's excluded (76 blocks, deliberately)
+## What's excluded (77 blocks, deliberately)
 
 Extracted from 232 total set-off blocks; these categories were dropped:
 
@@ -49,3 +51,10 @@ since the book states every example is available on the site.
 
 Produced by scripts (extract → classify → emit). If the manuscript's examples change,
 re-run the extraction rather than hand-editing files, so verbatim fidelity is preserved.
+
+Regenerated October 22, 2026 against the manuscript at commit 769ee08. Each example was
+carried forward to its current block with its title, type, and filename slug unchanged;
+three examples whose blocks left the book were dropped (Ch 14 retry-routing artifact,
+Ch 17 retry context, Ch 18 checkpoint record), and two Chapter 17 examples were added
+(retry guidance, retry routing table). Order numbers, and therefore some filenames in
+Chapters 17 and 20, shifted to follow the book's order.

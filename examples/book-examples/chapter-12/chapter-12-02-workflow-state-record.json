@@ -1,7 +1,7 @@
 {
-  "execution_id": "story-184",
+  "execution_id": "story-114",
   "status": "running",
   "current_stage": "verification",
   "retry_count": 2,
-  "branch": "story-184-auth-refactor"
+  "branch": "story-114-auth-refactor"
 }

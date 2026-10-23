@@ -3,15 +3,15 @@ story_workflow:
     - planning
     - implementation
     - testing
-    - verification
     - documentation
+    - verification
     - pull_request
 
   retry_routes:
-    testing_failure:
-      reroute_to: testing
-    verification_failure:
+    implementation_defect:
       reroute_to: implementation
+    validation_defect:
+      reroute_to: testing
 
   artifact_routes:
     implementation:

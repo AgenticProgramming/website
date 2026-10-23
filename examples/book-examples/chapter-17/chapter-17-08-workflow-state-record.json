@@ -10,5 +10,6 @@
     "changed-files.json",
     "implementation-summary.md",
     "test-results.json",
-    "verification-result.json"  ]
+    "verification-result.json"
+  ]
 }

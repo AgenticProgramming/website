@@ -3,20 +3,20 @@
     {
       "name": "implementer",
       "prompt": "implementer.md",
-      "input": "story-plan.md",
-      "output": "implementation.diff"
+      "input": "story-plan.yaml",
+      "output": "implementation.patch"
     },
     {
       "name": "tester",
       "prompt": "tester.md",
-      "input": "implementation.diff",
+      "input": "implementation.patch",
       "output": "test-results.json"
     },
     {
       "name": "verifier",
       "prompt": "verifier.md",
       "input": [
-        "implementation.diff",
+        "implementation.patch",
         "test-results.json"
       ],
       "on_failure": {

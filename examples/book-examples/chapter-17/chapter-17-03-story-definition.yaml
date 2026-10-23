@@ -46,7 +46,7 @@ verification_requirements:
   - Verify cancelled subscriptions no longer appear as active
   - Verify invoice history remains accessible after cancellation
   - Verify webhook processing behavior remains unchanged
-  - Run all existing billing integration tests
+  - All existing billing integration tests pass
 
 constraints:
   - Do not modify webhook event schemas

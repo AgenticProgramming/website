@@ -2,8 +2,15 @@
   "inspection_id": "inspection-44",
   "findings": [
     {
-      "type": "technical_debt",
+      "type": "security",
       "severity": "medium",
+      "confidence": "medium",
+      "paths": [
+        "api/auth/verify.py",
+        "workers/auth.py",
+        "gateway/middleware/jwt.py",
+        "admin/session.py"
+      ],
       "description":
         "Four independent JWT validation
          implementations detected"

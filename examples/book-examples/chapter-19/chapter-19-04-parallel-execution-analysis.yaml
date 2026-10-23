@@ -1,9 +1,9 @@
 parallel_execution_analysis:
   safe_parallel_groups:
-    - story-184
-    - story-185
+    - story-301
+    - story-302
   defer:
-    - story-186
+    - story-303
   reason:
-    story-184 and story-186 both modify
+    story-301 and story-303 both modify
     payment-processing services

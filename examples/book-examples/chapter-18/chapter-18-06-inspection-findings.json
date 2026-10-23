@@ -2,8 +2,14 @@
   "inspection_id": "inspection-43",
   "findings": [
     {
-      "type": "architecture",
+      "type": "duplication",
       "severity": "high",
+      "confidence": "high",
+      "paths": [
+        "services/billing/charge.py",
+        "services/orders/charge.py",
+        "services/subscriptions/charge.py"
+      ],
       "description":
         "Payment logic duplicated across
          three services"

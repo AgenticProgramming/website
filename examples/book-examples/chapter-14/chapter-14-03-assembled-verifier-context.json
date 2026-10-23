@@ -1,11 +1,11 @@
 {
   "workflow_id": "story-workflow",
-  "execution_id": "story-184",
+  "execution_id": "story-152",
   "stage": "verifier",
   "available_artifacts": [
-    ".harness/runs/story-184/changed-files.json",
-    ".harness/runs/story-184/test-results.json",
-    ".harness/runs/story-184/implementation-summary.md"
+    ".harness/runs/story-152/changed-files.json",
+    ".harness/runs/story-152/test-results.json",
+    ".harness/runs/story-152/implementation-summary.md"
   ],
   "acceptance_criteria": [
     "duplicate webhook deliveries do not create duplicate customer charges",

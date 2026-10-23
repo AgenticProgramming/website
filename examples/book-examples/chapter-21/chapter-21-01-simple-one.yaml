@@ -5,7 +5,7 @@ objective: |
 constraints:
   - refunds must respect the existing idempotency guarantees
   - no changes to the public checkout API
-  - PCI scope must not expand
+  - no new component may store or handle card data
 
 acceptance_criteria:
   - a full refund returns the charge to the customer and updates state

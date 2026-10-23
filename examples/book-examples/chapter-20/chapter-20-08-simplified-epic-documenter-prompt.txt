@@ -17,8 +17,8 @@ as authoritative.
 Epic plan:
 {{epic_plan}}
 
-Epic verification results:
-{{epic_verification_results}}
+Epic test results:
+{{epic_test_results}}
 
 Epic implementation artifacts:
 {{epic_implementation_artifacts}}

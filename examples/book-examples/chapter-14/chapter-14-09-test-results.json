@@ -1,4 +1,7 @@
 {
+  "command": "npm test",
+  "exit_status": 1,
+  "output": ".harness/runs/story-152/test-output.txt",
   "status": "failed",
   "executed_suites": [
     "subscription_reconciliation_tests",

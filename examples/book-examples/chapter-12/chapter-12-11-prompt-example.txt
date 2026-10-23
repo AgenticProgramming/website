@@ -1,4 +1,4 @@
 pull_request/
   pr-description.md
-  execution-summary.md
+  completion-report.md
   verification-result.json

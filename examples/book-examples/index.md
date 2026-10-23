@@ -1,6 +1,6 @@
 # Book Examples — Index
 
-156 examples extracted verbatim from the manuscript, organized by chapter.
+155 examples extracted verbatim from the manuscript, organized by chapter.
 Each entry is also written as an individual file under its chapter directory.
 Fields per example: chapter, order, title, type, description, filename, content.
 
@@ -32,7 +32,7 @@ Fields per example: chapter, order, title, type, description, filename, content.
 - **Workflow state record** — `json` — `chapter-12-02-workflow-state-record.json`
 - **Verifier result** — `json` — `chapter-12-03-verifier-result.json`
 - **Simplified orchestration loop** — `pseudocode` — `chapter-12-04-simplified-orchestration-loop.txt`
-- **Add JWT authentication to the API.** — `prompt` — `chapter-12-05-add-jwt-authentication-to-the-api.txt`
+- **Create a story to add JWT authentication to the API.** — `prompt` — `chapter-12-05-create-a-story-to-add-jwt-authentication-to-the-ap.txt`
 - **Story definition** — `yaml` — `chapter-12-06-story-definition.yaml`
 - **Workflow state record** — `json` — `chapter-12-07-workflow-state-record.json`
 - **Test results** — `json` — `chapter-12-08-test-results.json`
@@ -78,7 +78,6 @@ Fields per example: chapter, order, title, type, description, filename, content.
 - **Verifier prompt** — `prompt` — `chapter-14-10-verifier-prompt.txt`
 - **Verifier result** — `json` — `chapter-14-11-verifier-result.json`
 - **Configuration example** — `json` — `chapter-14-12-configuration-example.json`
-- **Retry-routing artifact** — `json` — `chapter-14-13-retry-routing-artifact.json`
 
 ## Chapter 16  (`chapter-16/`)
 
@@ -108,19 +107,20 @@ Fields per example: chapter, order, title, type, description, filename, content.
 - **Test results** — `json` — `chapter-17-07-test-results.json`
 - **Workflow state record** — `json` — `chapter-17-08-workflow-state-record.json`
 - **Workflow state record** — `json` — `chapter-17-09-workflow-state-record.json`
-- **Retry context** — `json` — `chapter-17-10-retry-context.json`
+- **Retry guidance** — `json` — `chapter-17-10-retry-guidance.json`
 - **Naive retry strategy** — `pseudocode` — `chapter-17-11-naive-retry-strategy.txt`
-- **Independent workflows before composition** — `config` — `chapter-17-12-independent-workflows-before-composition.txt`
-- **Reusable verification workflow** — `config` — `chapter-17-13-reusable-verification-workflow.txt`
-- **Reusable reporting workflow** — `config` — `chapter-17-14-reusable-reporting-workflow.txt`
-- **Composed story workflow** — `config` — `chapter-17-15-composed-story-workflow.txt`
-- **Story boundaries** — `json` — `chapter-17-16-story-boundaries.json`
-- **Implementation file record** — `json` — `chapter-17-17-implementation-file-record.json`
-- **Verifier result** — `json` — `chapter-17-18-verifier-result.json`
-- **Execution limits** — `json` — `chapter-17-19-execution-limits.json`
-- **Stage budgets** — `json` — `chapter-17-20-stage-budgets.json`
-- **Workflow state record** — `json` — `chapter-17-21-workflow-state-record.json`
-- **Why did story-184 escalate?** — `prompt` — `chapter-17-22-why-did-story-184-escalate.txt`
+- **Retry routing table** — `json` — `chapter-17-12-retry-routing-table.json`
+- **Independent workflows before composition** — `config` — `chapter-17-13-independent-workflows-before-composition.txt`
+- **Reusable verification workflow** — `config` — `chapter-17-14-reusable-verification-workflow.txt`
+- **Reusable reporting workflow** — `config` — `chapter-17-15-reusable-reporting-workflow.txt`
+- **Composed story workflow** — `config` — `chapter-17-16-composed-story-workflow.txt`
+- **Story boundaries** — `json` — `chapter-17-17-story-boundaries.json`
+- **Implementation file record** — `json` — `chapter-17-18-implementation-file-record.json`
+- **Verifier result** — `json` — `chapter-17-19-verifier-result.json`
+- **Execution limits** — `json` — `chapter-17-20-execution-limits.json`
+- **Stage budgets** — `json` — `chapter-17-21-stage-budgets.json`
+- **Workflow state record** — `json` — `chapter-17-22-workflow-state-record.json`
+- **Why did story-184 escalate?** — `prompt` — `chapter-17-23-why-did-story-184-escalate.txt`
 
 ## Chapter 18  (`chapter-18/`)
 
@@ -135,7 +135,6 @@ Fields per example: chapter, order, title, type, description, filename, content.
 - **Workflow state record** — `json` — `chapter-18-09-workflow-state-record.json`
 - **Recovery** — `pseudocode` — `chapter-18-10-recovery.txt`
 - **Why did story-184 stop?** — `prompt` — `chapter-18-11-why-did-story-184-stop.txt`
-- **Checkpoint record** — `json` — `chapter-18-12-checkpoint-record.json`
 
 ## Chapter 19  (`chapter-19/`)
 
@@ -156,9 +155,9 @@ Fields per example: chapter, order, title, type, description, filename, content.
 - **Simplified Epic Implementer prompt** — `prompt` — `chapter-20-05-simplified-epic-implementer-prompt.txt`
 - **Simplified Epic Tester prompt** — `prompt` — `chapter-20-06-simplified-epic-tester-prompt.txt`
 - **Test results** — `json` — `chapter-20-07-test-results.json`
-- **Simplified Epic Verifier prompt** — `prompt` — `chapter-20-08-simplified-epic-verifier-prompt.txt`
-- **Verifier result** — `json` — `chapter-20-09-verifier-result.json`
-- **Simplified Epic Documenter prompt** — `prompt` — `chapter-20-10-simplified-epic-documenter-prompt.txt`
+- **Simplified Epic Documenter prompt** — `prompt` — `chapter-20-08-simplified-epic-documenter-prompt.txt`
+- **Simplified Epic Verifier prompt** — `prompt` — `chapter-20-09-simplified-epic-verifier-prompt.txt`
+- **Verifier result** — `json` — `chapter-20-10-verifier-result.json`
 - **Workflow definition** — `yaml` — `chapter-20-11-workflow-definition.yaml`
 - **Workflow state record** — `json` — `chapter-20-12-workflow-state-record.json`
 - **run-epic epic-42** — `shell` — `chapter-20-13-run-epic-epic-42.sh`
