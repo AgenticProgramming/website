@@ -21,9 +21,9 @@
           <p class="eyebrow center">Agentic Programming</p>
           <h1 class="page-title">What&rsquo;s New Since Your Copy</h1>
 
-          <p class="standfirst">If you have been reading <em>Agentic Programming</em> over the past month, the August 31 update is a large one &mdash; about 17,000 new words &mdash; and this page tells you exactly which parts of it you have not read.</p>
+          <p class="standfirst">If you have been reading <em>Agentic Programming</em> as it was written, this page tells you what changed in each update and which parts of it you need to go back and read.</p>
 
-          <p>It exists because most of you are close to finishing, and a big update at that moment is more unsettling than helpful without a map. So here is the map. It will not be linked from anywhere on the site. It is for the people who were already reading.</p>
+          <p>It exists because a big update is more unsettling than helpful without a map. So here is the map, newest update first. It will not be linked from anywhere on the site. It is for the people who were already reading.</p>
         </div>
 
         <!-- ===================================================================
@@ -41,8 +41,69 @@
              Nothing else needs to change. Older releases stay on the page.
              ================================================================ -->
 
-        <section class="release" aria-labelledby="rel-2026-08-31">
-          <h2 class="release-date" id="rel-2026-08-31">August 31, 2026 <span class="release-tag">17,000 new words, mostly Part&nbsp;3</span></h2>
+        <section class="release" aria-labelledby="rel-2026-10-23">
+          <h2 class="release-date" id="rel-2026-10-23">October 23, 2026 <span class="release-tag">The finished book</span></h2>
+
+          <div class="prose">
+            <h3 class="tier-title">The short version</h3>
+
+            <p>This is the finished book. Since the August update it has been through a professional copyedit and a final proofread of every chapter. Nearly all of that work changed wording, not substance, so a chapter you have already read does not need re-reading.</p>
+
+            <p>One section is new: Chapter 5 now answers why you would build a harness instead of handing the job to one capable agent. Two changes finish work the August update started, so that the whole book agrees with it: who runs the tests, and the documenter running before the verifier. All three are listed below, and together they are a short read.</p>
+          </div>
+
+          <div class="tier">
+            <h3 class="tier-title">Tier 1 &mdash; New material</h3>
+            <p class="tier-note">This was not in your copy at all.</p>
+
+            <table class="changes">
+              <thead>
+                <tr><th scope="col">Where</th><th scope="col">What it says</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Ch.&nbsp;5</strong>, &ldquo;The Agentic Harness&rdquo; (the closing paragraphs)</td>
+                  <td>Today&rsquo;s coding agents can already plan, write code, and run tests in one long session. So why build a harness at all, instead of giving one capable agent the whole job? Four reasons: an agent cannot independently check its own work, more context is not better context, delegated work needs places to retry and state that survives a failure, and better models raise the cost of each missed error. Chapter 12&rsquo;s discussion of the same question now builds on this answer.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tier">
+            <h3 class="tier-title">Tier 2 &mdash; Conclusions that moved</h3>
+            <p class="tier-note">Sections you have read that now say something different. Worth re-reading.</p>
+
+            <table class="changes">
+              <thead>
+                <tr><th scope="col">Where</th><th scope="col">What changed</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Part&nbsp;3</strong> (Chapters 12&ndash;15, 17, 20, and 22), <strong>Ch.&nbsp;6</strong>, and <strong>Appendix&nbsp;A</strong></td>
+                  <td><strong>Who runs the tests is now the same everywhere.</strong> The August update moved suite execution to the coordinator in Chapter 14, but other chapters still described the tester running the suite and reporting the result. They now all match: the tester writes the tests and may run them while it works, the coordinator runs the configured test command and records the result, and a failing suite goes to the verifier, which sends the work to the stage that owns the failure. The tables, prompts, and examples that showed the old arrangement were updated too.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ch.&nbsp;14</strong> and <strong>Ch.&nbsp;17</strong></td>
+                  <td><strong>The documenter-before-verifier order now holds in every example.</strong> The August update reversed the order in the prose, but a few places still showed the documenter running last: Chapter 14&rsquo;s agent table, its artifact-flow listing, and its documenter prompt, and the refactoring workflow in Chapter 17. All of them now run the documenter before the verifier, so nothing in the book contradicts the rule.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tier">
+            <div class="prose">
+              <h3 class="tier-title">Tier 3 &mdash; Everything else</h3>
+              <p class="tier-note">No action needed.</p>
+
+              <p>The copyedit touched every chapter: tighter sentences, consistent terminology and capitalization, contractions spelled out, and cleaner tables and captions. The final proofread that followed fixed typos and grammar, smoothed the lead-ins to examples and figures, and caught a handful of small factual slips. A few smaller changes you may notice: the Principles page now lists ten principles (the workflow-versus-harness distinction is still explained in Chapter 12), the productivity figures in Chapter 23 were recomputed from the project&rsquo;s actual schedule, and the book has its finished cover.</p>
+
+              <p>Every example on the <a href="/examples/">Book Examples</a> page now matches the final text.</p>
+            </div>
+          </div>
+        </section>
+
+        <details class="release release-past">
+          <summary class="release-date">August 31, 2026 <span class="release-tag">17,000 new words, mostly Part&nbsp;3</span></summary>
 
           <div class="prose">
             <h3 class="tier-title">The short version</h3>
@@ -182,7 +243,7 @@
               <p>The book also went to a professional copyeditor today, the same day this update shipped. That pass will change wording across every chapter and is not expected to change substance anywhere. When it lands, this page will say so.</p>
             </div>
           </div>
-        </section>
+        </details>
 
         <div class="prose close-note">
           <p>If something on this page is unclear, or you find something that changed and is not listed here, the feedback form is at <a href="/feedback/">agenticprogrammingbook.com/feedback</a>. Reader feedback has shaped this whole final stretch.</p>
