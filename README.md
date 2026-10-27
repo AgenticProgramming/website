@@ -46,7 +46,6 @@ Apex domain `agenticprogrammingbook.com` — four A records and four AAAA record
 ## TODO (placeholders to wire up later)
 
 - **Buy link:** replace the `href="#"` on the *Get the Book on Leanpub* button in `index.html` with the real Leanpub URL once the book exists.
-- **Email signup:** done — MailerLite embedded form (account `2457989`, form `4Bu8OJ`) in the `#notify` section; the hero *Get Notified* button scrolls to it. The MailerLite Universal loader is just before `</body>`. Before the first send, authenticate the sending domain (DKIM/SPF) in MailerLite.
 - **Social image:** add a cover image and uncomment the `og:image` meta tag in `index.html`.
 
 ## Feedback form (`/feedback`)
