@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Send Feedback — Agentic Programming</title>
-  <meta name="description" content="Report typos, unclear passages, or disagreements in Agentic Programming by Jerod W. Wilkerson. Reader feedback drives the final revision pass before the print edition.">
+  <meta name="description" content="Report typos, unclear passages, or disagreements in Agentic Programming by Jerod W. Wilkerson. Confirmed corrections are listed on the Errata page and fixed in future updates.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
 </head>
@@ -14,7 +14,7 @@
       <div class="container narrow">
         <p class="eyebrow center">Agentic Programming</p>
         <h1 class="feedback-title">Send Feedback</h1>
-        <p>Found a typo? Hit a passage that didn&rsquo;t land? Disagree with an argument? This form goes straight to the author, and reader feedback drives the final revision pass before the print edition. Paste the sentence you&rsquo;re commenting on so I can find it in any edition. Anonymous is fine &mdash; leave your name and email if you&rsquo;d like credit in the acknowledgments when your report leads to a fix.</p>
+        <p>Found a typo? Hit a passage that didn&rsquo;t land? Disagree with an argument? This form goes straight to the author. Confirmed corrections are listed on the <a href="/errata/">Errata</a> page and fixed in future updates. Paste the sentence you&rsquo;re commenting on so I can find it in any edition. Anonymous is fine.</p>
 
         <form id="feedback-form" class="feedback-form" novalidate>
           <div class="field">
@@ -22,7 +22,9 @@
             <select id="edition" name="edition" required>
               <option value="" selected disabled>Select an edition&hellip;</option>
               <option>Leanpub PDF</option>
-              <option>EPUB</option>
+              <option>Leanpub EPUB</option>
+              <option>Print</option>
+              <option>Kindle</option>
               <option>Other</option>
             </select>
           </div>
@@ -73,13 +75,13 @@
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" autocomplete="name">
-            <p class="field-note">Optional &mdash; your name and email are only needed if you&rsquo;d like to be listed on the acknowledgments page.</p>
+            <p class="field-note">Optional.</p>
           </div>
 
           <div class="field">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" autocomplete="email">
-            <p class="field-note">Optional &mdash; also lets me notify you when your report is addressed.</p>
+            <p class="field-note">Optional &mdash; lets me follow up or tell you when your report is addressed.</p>
           </div>
 
           <!-- Honeypot: humans never see or fill this field -->

@@ -11,7 +11,7 @@ Static site (plain HTML/CSS, no build step) hosted on GitHub Pages with a custom
 - `index.html` — the page
 - `styles.css` — styles
 - `feedback/` — reader-feedback form (see below)
-- `errata/` — errata page (pre-release notice now; post-print corrections later)
+- `errata/` — errata page (corrections since the October 23, 2026 release, with which editions include each fix)
 - `whats-new/` — unlisted release-notes page (see below)
 - `examples/` — book examples page, rendered from `examples/book-examples/manifest.json`
 - `favicon.svg` — favicon (AI Fluency Ladder motif)
@@ -42,11 +42,6 @@ Apex domain `agenticprogrammingbook.com` — four A records and four AAAA record
 `www` subdomain — CNAME to the org's Pages host:
 
     CNAME  www   agenticprogramming.github.io.
-
-## TODO (placeholders to wire up later)
-
-- **Buy link:** replace the `href="#"` on the *Get the Book on Leanpub* button in `index.html` with the real Leanpub URL once the book exists.
-- **Social image:** add a cover image and uncomment the `og:image` meta tag in `index.html`.
 
 ## Feedback form (`/feedback`)
 
@@ -114,10 +109,13 @@ row). Two non-obvious things are required for this to actually reach your inbox:
 
 ## Errata page (`/errata`)
 
-Static page. While the book is pre-release it shows a notice; once the book is in
-print, unhide the `#errata-list` div in `errata/index.html` and add one `.erratum`
-entry per correction (date, location, description — a commented template is in the
-file), newest first.
+Static page listing corrections made since the finished book was released on
+October 23, 2026. Add one `.erratum` entry per correction to the `#errata-list` div
+in `errata/index.html` (date, location, which editions include the fix, description —
+a commented template is in the file), newest first, and remove the "No corrections
+yet" paragraph with the first entry. Leanpub gets fixes as they're made; print and
+Kindle are corrected in batches, so update each entry's "Fixed in" note when a
+batch ships to KDP.
 
 ## What's New page (`/whats-new`)
 
