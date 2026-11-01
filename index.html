@@ -33,14 +33,16 @@
       <p class="subtitle">A practical roadmap for developers learning to work with AI as an active participant in software development: from prompting and task delegation to agentic workflows, verified execution, and autonomous execution.</p>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://leanpub.com/agenticprogramming" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary" href="https://www.amazon.com/dp/B0HPZ8MKCX?spcref=PRINT_LISTING" target="_blank" rel="noopener noreferrer">
+          Get the Book on Amazon
+        </a>
+        <a class="btn btn-secondary" href="https://leanpub.com/agenticprogramming" target="_blank" rel="noopener noreferrer">
           Get the Book on Leanpub
         </a>
-        <button type="button" class="btn btn-secondary" id="amazon-btn" aria-haspopup="dialog">Get the Book on Amazon</button>
       </div>
       <ul class="formats">
-        <li><strong>Leanpub</strong> &mdash; PDF and EPUB, available now</li>
-        <li><strong>Amazon</strong> &mdash; printed book and Kindle, expected November 2, 2026</li>
+        <li><strong>Amazon</strong> &mdash; printed book and Kindle</li>
+        <li><strong>Leanpub</strong> &mdash; PDF and EPUB</li>
       </ul>
       <p class="cta-note">The book is finished. Leanpub readers get free updates to this edition.</p>
       </div>
@@ -131,27 +133,5 @@
       <p><a href="mailto:author@agenticprogrammingbook.com">author@agenticprogrammingbook.com</a></p>
     </div>
   </footer>
-
-  <dialog class="modal" id="amazon-dialog" aria-labelledby="amazon-dialog-title">
-    <h2 id="amazon-dialog-title">Coming Soon to Amazon</h2>
-    <p>The printed book and Kindle edition are expected to be available on Amazon on <strong>November 2, 2026</strong>.</p>
-    <p>The PDF and EPUB editions are available now on <a href="https://leanpub.com/agenticprogramming" target="_blank" rel="noopener noreferrer">Leanpub</a>.</p>
-    <form method="dialog" class="modal-actions">
-      <button class="btn btn-primary" autofocus>OK</button>
-    </form>
-  </dialog>
-
-  <script>
-    (function () {
-      var dialog = document.getElementById('amazon-dialog');
-      document.getElementById('amazon-btn').addEventListener('click', function () {
-        dialog.showModal();
-      });
-      // Close when the backdrop (outside the dialog box) is clicked.
-      dialog.addEventListener('click', function (e) {
-        if (e.target === dialog) dialog.close();
-      });
-    })();
-  </script>
 </body>
 </html>
