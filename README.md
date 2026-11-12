@@ -14,6 +14,7 @@ Static site (plain HTML/CSS, no build step) hosted on GitHub Pages with a custom
 - `errata/` — errata page (corrections since the October 23, 2026 release, with which editions include each fix)
 - `whats-new/` — unlisted release-notes page (see below)
 - `examples/` — book examples page, rendered from `examples/book-examples/manifest.json`
+- `talks/` — talks page (`/talks`, the URL printed as a QR code on slides — keep it permanent); slides PDFs and the ladder graphic live alongside `talks/index.html`. Add talks newest first.
 - `favicon.svg` — favicon (AI Fluency Ladder motif)
 - `CNAME` — custom domain for GitHub Pages (`agenticprogrammingbook.com`)
 - `.nojekyll` — tells Pages to serve files as-is (no Jekyll processing)
