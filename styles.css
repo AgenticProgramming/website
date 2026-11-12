@@ -120,11 +120,12 @@ button.btn { font-family: inherit; line-height: inherit; cursor: pointer; }
 }
 .hero-cover {
   flex: 0 0 auto;
-  width: 240px;
+  width: 280px;
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  /* 3D mockup with a transparent background: the shadow follows the book's
+     shape rather than a box, so it doesn't look like it's floating. */
+  filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.6));
 }
 .hero-copy { max-width: 560px; }
 .hero-copy .tagline,
