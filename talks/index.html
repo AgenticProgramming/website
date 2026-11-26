@@ -6,7 +6,7 @@
   <title>Talks — Agentic Programming</title>
   <meta name="description" content="Slides and resources from Jerod W. Wilkerson's talks on agentic programming.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v=2">
 </head>
 <body>
   <nav class="topbar" aria-label="Site">
@@ -21,7 +21,7 @@
         <h1 class="page-title">Talks</h1>
         <p class="center">Slides and resources from Jerod W. Wilkerson&rsquo;s talks on agentic programming.</p>
 
-        <!-- Talk list: one <li> per talk, in the same order as the entries. Keep it in step with the entries below. -->
+        <!-- Talk list: one <li> per talk, in the same fixed order as the entries (not by date). Keep it in step with the entries below. -->
         <ul class="talk-index" aria-label="Talks on this page">
           <li>
             <a class="talk-index-title" href="#climbing-the-ladder">Climbing the AI Fluency Ladder</a>
@@ -30,6 +30,14 @@
           <li>
             <a class="talk-index-title" href="#build-a-harness">Build a Harness</a>
             <a class="btn btn-primary talk-index-slides" href="build-a-harness.pdf" aria-label="Slides for Build a Harness (PDF)">Slides</a>
+          </li>
+          <li>
+            <a class="talk-index-title" href="#ten-times">Ten Times</a>
+            <a class="btn btn-primary talk-index-slides" href="ten-times.pdf" aria-label="Slides for Ten Times (PDF)">Slides</a>
+          </li>
+          <li>
+            <a class="talk-index-title" href="#measure-ai-skill">Measure AI Skill by What You Delegate</a>
+            <a class="btn btn-primary talk-index-slides" href="measure-ai-skill.pdf" aria-label="Slides for Measure AI Skill by What You Delegate (PDF)">Slides</a>
           </li>
         </ul>
 
@@ -59,15 +67,12 @@
               </a>
             </li>
             <li>
-              <a class="resource" href="ai-fluency-ladder.png">
+              <a class="resource" href="ai-fluency-ladder.png" data-ladder>
                 <span class="resource-name">The AI Fluency Ladder</span>
-                <span class="resource-desc">The ladder graphic from the talk. Tap to view full size and save.</span>
+                <span class="resource-desc">The ladder graphic from the talk. Tap to view.</span>
               </a>
             </li>
           </ul>
-          <a class="ladder-figure" href="ai-fluency-ladder.png">
-            <img src="ai-fluency-ladder.png" width="1940" height="1200" alt="The AI Fluency Ladder: five levels of delegation" loading="lazy">
-          </a>
         </article>
 
         <article class="talk" id="build-a-harness">
@@ -96,6 +101,64 @@
           </ul>
         </article>
 
+        <article class="talk" id="ten-times">
+          <h2 class="talk-title">Ten Times</h2>
+          <p class="talk-subtitle">An honest accounting of agentic leverage, for engineering leaders &middot; 20 minutes</p>
+
+          <p class="talk-slides"><a class="btn btn-primary btn-block" href="ten-times.pdf">Download the Slides (PDF)</a></p>
+          <p class="talk-notice">Slides &copy; 2026 Jerod W. Wilkerson. All rights reserved. You&rsquo;re welcome to share the link to this page.</p>
+
+          <p>Faster code generation is the smallest part of what agentic development delivers. This talk, for engineering leaders, puts one real number on one real project, about ten times the labor leverage, shows how it was measured three ways, and states the caveats up front. Then it covers where the gains come from and what they cost, the staffing choice between a small senior team with tokens and a larger team, and what leaders need to own: written standards, verification, hiring, and the pipeline for junior developers.</p>
+
+          <h3 class="talk-subhead">Resources from the Talk</h3>
+          <ul class="resource-list">
+            <li>
+              <a class="resource" href="https://github.com/jerodw/level-five" target="_blank" rel="noopener noreferrer">
+                <span class="resource-name">Companion Code</span>
+                <span class="resource-desc">The level-three harness from the book, MIT-licensed, on GitHub.</span>
+              </a>
+            </li>
+            <li>
+              <a class="resource" href="/examples/">
+                <span class="resource-name">Book Examples</span>
+                <span class="resource-desc">Every code, prompt, and configuration example from the book.</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+
+        <article class="talk" id="measure-ai-skill">
+          <h2 class="talk-title">Measure AI Skill by What You Delegate</h2>
+          <p class="talk-subtitle">Find your level on the AI Fluency Ladder, and what to build next &middot; 20 minutes</p>
+
+          <p class="talk-slides"><a class="btn btn-primary btn-block" href="measure-ai-skill.pdf">Download the Slides (PDF)</a></p>
+          <p class="talk-notice">Slides &copy; 2026 Jerod W. Wilkerson. All rights reserved. You&rsquo;re welcome to share the link to this page.</p>
+
+          <p>AI skill isn&rsquo;t measured by how fast you write code. It&rsquo;s measured by how much of the work you can hand off. This talk walks through the AI Fluency Ladder and the bottleneck each level removes, helps you find your level and the traps waiting there, and ends with what to build next.</p>
+
+          <h3 class="talk-subhead">Resources from the Talk</h3>
+          <ul class="resource-list">
+            <li>
+              <a class="resource" href="https://github.com/jerodw/level-five" target="_blank" rel="noopener noreferrer">
+                <span class="resource-name">Companion Code</span>
+                <span class="resource-desc">The level-three harness from the book, MIT-licensed, on GitHub.</span>
+              </a>
+            </li>
+            <li>
+              <a class="resource" href="/examples/">
+                <span class="resource-name">Book Examples</span>
+                <span class="resource-desc">Every code, prompt, and configuration example from the book.</span>
+              </a>
+            </li>
+            <li>
+              <a class="resource" href="ai-fluency-ladder.png" data-ladder>
+                <span class="resource-name">The AI Fluency Ladder</span>
+                <span class="resource-desc">The ladder graphic from the talk. Tap to view.</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+
         <div class="talks-book">
           <h2>The Book</h2>
           <p>These talks draw on <strong>Agentic Programming</strong>, a practical roadmap for developers learning to work with AI as an active participant in software development.</p>
@@ -113,6 +176,16 @@
         </div>
       </div>
     </section>
+
+    <!-- The ladder graphic opens here from any resource link marked data-ladder.
+         Without JavaScript the link just opens the PNG. -->
+    <dialog class="ladder-dialog" id="ladder-dialog" aria-label="The AI Fluency Ladder">
+      <img src="ai-fluency-ladder.png" width="1940" height="1200" alt="The AI Fluency Ladder: five levels of delegation" loading="lazy">
+      <div class="ladder-dialog-actions">
+        <a class="btn btn-secondary" href="ai-fluency-ladder.png" download>Save Image</a>
+        <button class="btn btn-primary" type="button" data-close>Close</button>
+      </div>
+    </dialog>
   </main>
 
   <footer class="footer">
@@ -122,5 +195,16 @@
       <p><a href="mailto:author@agenticprogrammingbook.com">author@agenticprogrammingbook.com</a></p>
     </div>
   </footer>
+  <script>
+    (function () {
+      var dlg = document.getElementById('ladder-dialog');
+      if (!dlg || typeof dlg.showModal !== 'function') return;
+      document.querySelectorAll('[data-ladder]').forEach(function (link) {
+        link.addEventListener('click', function (e) { e.preventDefault(); dlg.showModal(); });
+      });
+      dlg.querySelector('[data-close]').addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    })();
+  </script>
 </body>
 </html>

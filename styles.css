@@ -641,14 +641,29 @@ a:focus-visible, .btn:focus-visible {
 .resource:hover .resource-name { color: var(--accent-hover); }
 .resource-desc { display: block; font-size: 0.93rem; color: var(--muted); }
 
-.ladder-figure { display: block; margin-top: 8px; }
-.ladder-figure img {
+.ladder-dialog {
+  width: min(480px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  margin: auto;
+  padding: 14px;
+  overflow: auto;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.ladder-dialog::backdrop { background: rgba(8, 11, 20, 0.75); }
+.ladder-dialog img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  max-height: calc(100vh - 140px);
+  object-fit: contain;
+  border-radius: 8px;
 }
+.ladder-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 
 .talks-book {
   margin-top: 56px;
